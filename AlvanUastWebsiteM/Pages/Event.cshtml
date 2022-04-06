@@ -1,0 +1,55 @@
+﻿@page "/Event/{id}/{title}"
+@model AlvanUastWebsiteM.Pages.EventModel
+@{
+    Layout = "_news";
+}
+
+@section sitemap{
+    <span class=""><a href="@Url.Content("~/")">خانه</a></span>
+    <span class=""><a href="/EventArchive">رویداد ها</a></span>
+    <span class=""><a href="">@Model.eventt.Title</a></span>
+}
+
+@section news{
+    <h4 class="my-4" style="">@Model.eventt.Title</h4>
+    <div class="d-flex flex-row justify-content-between">
+        <span style="font-size:13px;color: #c3c3c3;"><span class="bi bi-calendar-check mycolor"></span> @Model.eventt.Date.toPersianDate()</span>
+        <span style="font-size:13px;color: #c3c3c3;"><span class="bi bi-tag mycolor"></span> رویداد </span>
+        <span class="mycolor" style="font-size:13px;color: #c3c3c3;cursor:pointer"><span onclick="printDiv('newssection')" class="bi bi-printer"></span><span class="mx-1"></span><span onclick="navigator.clipboard.writeText(window.location.href);" class="bi bi-share"></span></span>
+    </div>
+    <img class="img-fluid img-thumbnail rounded mx-auto d-block mt-2" src="~/images/events/@Model.eventt.Image">
+    <p class="text-justify p-3">
+        @Model.eventt.Body
+    </p>
+}
+
+@section sidemenu{
+    <aside class="test1 topics__aside sticky-sidebar__simple" style="position: relative; overflow: visible; box-sizing: border-box; min-height: 1px;">
+        <div class="theiaStickySidebar" style="padding-top: 0px; padding-bottom: 1px; position: static; transform: none; left: -17px; top: 0px;">
+            <div class="post-nav">
+                <div class="post-nav__body">
+                    <div class="_title">
+                        <span class="bold">آخرین رویداد ها</span>
+                    </div>
+                    <ul class="related-posts">
+                        @foreach (var item in Model.lastfoureventtitle)
+                        {
+                            <li class="related-posts__item">
+                                <a href="/Event/@item.Id/@item.Title" title="@item.Title" class="image-wrapper">
+                                    <img width="60" height="60" src="~/images/events/@item.Image" class="image-wrapper__img wp-post-image" alt="">
+                                </a>
+                                <div class="detail-wrapper">
+                                    <a href="/Event/@item.Id/@item.Title" title="@item.Title" class="detail-wrapper__title">@item.Title</a>
+                                    <div class="detail-wrapper__time">
+                                        <i class="icon-clock-icon"></i>
+                                        <span class="detail-wrapper__time--detail">@item.Date.toPersianDate()</span>
+                                    </div>
+                                </div>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </aside>
+}

@@ -1,0 +1,182 @@
+﻿@page
+@model AlvanUastWebsiteM.Pages.SearchModel
+@{
+    Layout = "_archive";
+}
+
+@section sitemap{
+    <span class=""><a href="@Url.Content("~/")">خانه</a></span>
+    <span class=""><a href="">نتایج جستجو "@Model.currentSearch"</a></span>
+}
+
+@section filter{
+    <form asp-page="./" method="get" class="form-inline d-flex justify-content-between">
+        <div class="form-group col-5">
+            <label for="category">دسته بندی&nbsp;</label>
+            <input type="hidden" name="search" value="@Model.currentSearch" />
+            <select id="category" name="category" class="form-control">
+                @switch (Model.CurrentCategory)
+                {
+                    case "اخبار":
+                        <option>همه</option>
+                        <option selected>اخبار</option>
+                        <option>رویداد</option>
+                        <option>اطلاعیه</option>
+                        break;
+                    case "رویداد":
+                        <option>همه</option>
+                        <option>اخبار</option>
+                        <option selected>رویداد</option>
+                        <option>اطلاعیه</option>
+                        break;
+                    case "اطلاعیه":
+                        <option>همه</option>
+                        <option>اخبار</option>
+                        <option>رویداد</option>
+                        <option selected>اطلاعیه</option>
+                        break;
+                    default:
+                        <option selected>همه</option>
+                        <option>اخبار</option>
+                        <option>رویداد</option>
+                        <option>اطلاعیه</option>
+                        break;
+                }
+            </select>
+        </div>
+        <div class="form-group col-5">
+            <label class="text-nowrap" for="showinpage">تعداد در صفحه&nbsp;</label>
+            <select name="size" id="size" class="form-control">
+                @switch (Model.CurrentSize)
+                {
+                    case 5:
+                        <option selected>5</option>
+                        <option>10</option>
+                        <option>20</option>
+                        break;
+                    case 10:
+                        <option>5</option>
+                        <option selected>10</option>
+                        <option>20</option>
+                        break;
+                    case 20:
+                        <option>5</option>
+                        <option>10</option>
+                        <option selected>20</option>
+                        break;
+                    default:
+                        <option selected>5</option>
+                        <option>10</option>
+                        <option>20</option>
+                        break;
+                }
+            </select>
+        </div>
+        <button type="submit" class="btn filter-btn"><i class="bi bi-funnel-fill"></i></button>
+    </form>
+}
+
+@section Items{
+    <div class="page itemlist" data-results="30656">
+        <section class="box card horizontal full-card bottom-fade _cyan">
+            <div class="items">
+                <ul>
+                    @foreach (var item in Model.Items)
+                    {
+                        <li class="text">
+                            <figure>
+                                @if (item.type == 1)
+                                {
+                                    <a href="/News/@item.id/@item.title">
+                                        <img src="~/images/news/@item.image" alt="@item.title">
+                                    </a>
+                                }
+                                else if (item.type == 2)
+                                {
+                                    <a href="/Event/@item.id/@item.title">
+                                        <img src="~/images/events/@item.image" alt="@item.title">
+                                    </a>
+                                }
+                                else
+                                {
+                                    <a onclick="Swal.fire({title: '@(item.body)',confirmButtonText: 'بستن',confirmButtonColor: '#0579a4',})">
+                                        <img src="~/images/notice/placeholder.webp" alt="@item.title">
+                                    </a>
+                                }
+                            </figure>
+                            <div class="desc">
+                                @if (item.type == 1)
+                                {
+                                    <h3><a href="/News/@item.id/@item.title" target="_blank">@item.title</a></h3>
+                                }
+                                else if (item.type == 2)
+                                {
+                                    <h3><a href="/Event/@item.id/@item.title" target="_blank">@item.title</a></h3>
+                                }
+                                else
+                                {
+                                    <h3><a onclick="Swal.fire({title: '@(item.body)',confirmButtonText: 'بستن',confirmButtonColor: '#0579a4',})">@item.title</a></h3>
+                                }
+                                <p>
+                                    @if (@item.body.Length > 150)
+                                    {
+                                        @item.body.Substring(0, 149) @("...")
+                                    }
+                                    else
+                                    {
+                                        @item.body @("...")
+                                    }
+                                </p>
+                                <time><span class="bi bi-calendar-check"></span> @item.date.toPersianDate()</time>
+
+                                @if (item.type == 1)
+                                {
+                                    <time style="left:5px"><span class="bi bi-tag"></span> خبر</time>
+                                }
+                                else if (item.type == 2)
+                                {
+                                    <time style="left:5px"><span class="bi bi-tag"></span> رویداد</time>
+                                }
+                                else
+                                {
+                                    <time style="left:5px"><span class="bi bi-tag"></span> اطلاعیه</time>
+                                }
+                            </div>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </section>
+    </div>
+    }
+
+
+@section archivePaging{
+    @if (Model.pager.Pages.Any())
+    {
+        <nav class="table-responsive">
+            <ul class="pagination justify-content-center d-flex flex-wrap">
+                @if (Model.pager.CurrentPage > 1)
+                {
+                    <li class="page-item"><a class="page-link" asp-page="Search" asp-route-category="@Model.CurrentCategory" asp-route-size="@Model.CurrentSize" asp-route-search="@Model.currentSearch">اول</a></li>
+                    <li class="page-item"><a class="page-link" asp-page="Search" asp-route-p="@(Model.pager.CurrentPage-1)" asp-route-category="@Model.CurrentCategory" asp-route-size="@Model.CurrentSize" asp-route-search="@Model.currentSearch">قبلی</a></li>
+                }
+
+                @foreach (var p in Model.pager.Pages)
+                {
+                    <li class="page-item @(p == Model.pager.CurrentPage ? "active" : "")"><a class="page-link" asp-page="Search" asp-route-p="@p" asp-route-category="@Model.CurrentCategory" asp-route-size="@Model.CurrentSize" asp-route-search="@Model.currentSearch">@p</a></li>
+                }
+
+                @if (Model.pager.CurrentPage < Model.pager.TotalPages)
+                {
+                    <li class="page-item"><a class="page-link" asp-page="Search" asp-route-p="@(Model.pager.CurrentPage+1)" asp-route-category="@Model.CurrentCategory" asp-route-size="@Model.CurrentSize" asp-route-search="@Model.currentSearch">بعدی</a></li>
+                    <li class="page-item"><a class="page-link" asp-page="Search" asp-route-p="@(Model.pager.TotalPages)" asp-route-category="@Model.CurrentCategory" asp-route-size="@Model.CurrentSize" asp-route-search="@Model.currentSearch">آخر</a></li>
+                }
+            </ul>
+        </nav>
+    }
+}
+
+@section archiveNo{
+    <div> نتایج : @(Model.pager.CurrentPage == Model.pager.EndPage ? Model.pager.TotalItems + " از "+Model.pager.TotalItems : (Model.pager.CurrentPage * Model.pager.PageSize) + " از " + Model.pager.TotalItems)</div>
+}

@@ -1,0 +1,192 @@
+﻿@page
+@model AlvanUastWebsiteM.Pages.Customize.Timeline.EditModel
+@{
+    Layout = "_customize";
+}
+
+<h1>مدیریت تقویم آموزشی</h1>
+
+<h4>ویرایش تقویم آموزشی</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post" asp-page="Edit">
+            <input type="hidden" asp-for="timeline.Id" />
+            <input type="hidden" asp-for="timeline.Nimsal" />
+            <div class="form-group">
+                <h5><label class="control-label">نیمسال @(Model.timeline.Nimsal==1?"اول":"دوم")</label></h5>
+            </div>
+            <div class="form-group">
+                <label class="control-label">انتخاب واحد</label>
+                <div class="form-group row">
+                    <label for="inputPassword" class="col-sm-4 col-form-label">تاریخ قبل</label>
+                    <div class="col-sm-8">
+                        <div class="form-control" readonly>@Model.timeline.EntekhabVahed.toPersianDate()</div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="inputPassword" class="col-sm-4 col-form-label">تاریخ جدید</label>
+                    <div class="col-sm-8">
+                        <input class="form-control" type="text" name="ev-date" id="ev-date" value="" />
+                    </div>
+                </div>
+                <input asp-for="timeline.EntekhabVahed" type="text" id="ev-gdate" class="form-control d-none" />
+                <span asp-validation-for="timeline.EntekhabVahed" class="text-danger"></span>
+            </div>
+            <hr />
+            <div class="form-group">
+                <label class="control-label">شروع کلاس ها</label>
+                <div class="form-group row">
+                    <label for="inputPassword" class="col-sm-4 col-form-label">تاریخ قبل</label>
+                    <div class="col-sm-8">
+                        <div class="form-control" readonly>@Model.timeline.ShoroeKelasha.toPersianDate()</div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="inputPassword" class="col-sm-4 col-form-label">تاریخ جدید</label>
+                    <div class="col-sm-8">
+                        <input class="form-control" type="text" name="sk-date" id="sk-date" value="" />
+                    </div>
+                </div>
+                <input asp-for="timeline.ShoroeKelasha" type="text" id="sk-gdate" class="form-control d-none" />
+                <span asp-validation-for="timeline.ShoroeKelasha" class="text-danger"></span>
+            </div>
+            <hr />
+            <div class="form-group">
+                <label class="control-label">حذف و اضافه</label>
+                <div class="form-group row">
+                    <label for="inputPassword" class="col-sm-4 col-form-label">تاریخ قبل</label>
+                    <div class="col-sm-8">
+                        <div class="form-control" readonly>@Model.timeline.HazfoEzafe.toPersianDate()</div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="inputPassword" class="col-sm-4 col-form-label">تاریخ جدید</label>
+                    <div class="col-sm-8">
+                        <input class="form-control" type="text" name="h-date" id="h-date" value="" />
+                    </div>
+                </div>
+                <input asp-for="timeline.HazfoEzafe" type="text" id="h-gdate" class="form-control d-none" />
+                <span asp-validation-for="timeline.HazfoEzafe" class="text-danger"></span>
+            </div>
+            <hr />
+            <div class="form-group">
+                <label class="control-label">پایان کلاس ها</label>
+                <div class="form-group row">
+                    <label for="inputPassword" class="col-sm-4 col-form-label">تاریخ قبل</label>
+                    <div class="col-sm-8">
+                        <div class="form-control" readonly>@Model.timeline.PayaneKelasha.toPersianDate()</div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="inputPassword" class="col-sm-4 col-form-label">تاریخ جدید</label>
+                    <div class="col-sm-8">
+                        <input class="form-control" type="text" name="p-date" id="p-date" value="" />
+                    </div>
+                </div>
+                <input asp-for="timeline.PayaneKelasha" type="text" id="p-gdate" class="form-control d-none" />
+                <span asp-validation-for="timeline.PayaneKelasha" class="text-danger"></span>
+            </div>
+            <hr />
+            <div class="form-group">
+                <label class="control-label">شروع امتحانات</label>
+                <div class="form-group row">
+                    <label for="inputPassword" class="col-sm-4 col-form-label">تاریخ قبل</label>
+                    <div class="col-sm-8">
+                        <div class="form-control" readonly>@Model.timeline.Emtehanat.toPersianDate()</div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="inputPassword" class="col-sm-4 col-form-label">تاریخ جدید</label>
+                    <div class="col-sm-8">
+                        <input class="form-control" type="text" name="em-date" id="em-date" value="" />
+                    </div>
+                </div>
+                <input asp-for="timeline.Emtehanat" type="text" id="em-gdate" class="form-control d-none" />
+                <span asp-validation-for="timeline.Emtehanat" class="text-danger"></span>
+            </div>
+            <br />
+            <br />
+            <div class="form-group">
+                <input type="submit" value="ویرایش" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">بازگشت</a>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(
+            function () {
+                $("#ev-date").persianDatepicker({
+                    isRTL: !0,
+                    formatDate: "YYYY/MM/DD",
+                    persianNumber: !0,
+                    fontSize: 13,
+                    calendarPosition: {
+                        x: 0,
+                        y: 0,
+                    },
+                    onSelect: function () {
+                        $("#ev-gdate").val($("#ev-date").attr("data-gdate"));
+                    }
+                });
+                $("#sk-date").persianDatepicker({
+                    isRTL: !0,
+                    formatDate: "YYYY/MM/DD",
+                    persianNumber: !0,
+                    fontSize: 13,
+                    calendarPosition: {
+                        x: 0,
+                        y: 0,
+                    },
+                    onSelect: function () {
+                        $("#sk-gdate").val($("#sk-date").attr("data-gdate"));
+                    }
+                });
+                $("#h-date").persianDatepicker({
+                    isRTL: !0,
+                    formatDate: "YYYY/MM/DD",
+                    persianNumber: !0,
+                    fontSize: 13,
+                    calendarPosition: {
+                        x: 0,
+                        y: 0,
+                    },
+                    onSelect: function () {
+                        $("#h-gdate").val($("#h-date").attr("data-gdate"));
+                    }
+                });
+                $("#p-date").persianDatepicker({
+                    isRTL: !0,
+                    formatDate: "YYYY/MM/DD",
+                    persianNumber: !0,
+                    fontSize: 13,
+                    calendarPosition: {
+                        x: 0,
+                        y: 0,
+                    },
+                    onSelect: function () {
+                        $("#p-gdate").val($("#p-date").attr("data-gdate"));
+                    }
+                });
+                $("#em-date").persianDatepicker({
+                    isRTL: !0,
+                    formatDate: "YYYY/MM/DD",
+                    persianNumber: !0,
+                    fontSize: 13,
+                    calendarPosition: {
+                        x: 0,
+                        y: 0,
+                    },
+                    onSelect: function () {
+                        $("#em-gdate").val($("#em-date").attr("data-gdate"));
+                    }
+                });
+            });
+    </script>
+}

@@ -1,0 +1,134 @@
+﻿@page
+@model AlvanUastWebsiteM.Pages.Customize.News.EditModel
+@{
+    Layout = "_customize";
+}
+
+<h1>مدیریت اخبار</h1>
+
+<h4>ویرایش خبر</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+
+        <h4>قسمت تغییر تصویر اصلی خبر</h4>
+        <form id="form" asp-page-handler="Upload" method="post" enctype="multipart/form-data">
+            <input type="hidden" asp-for="news.Id" />
+            <input type="hidden" name="image2" value="@ViewData["ImageName2"]" />
+            <input type="file" asp-for="upload" accept="image/*" style="display:none;" id="file" />
+            <input class="btn btn-primary" type="button" value="انتخاب تصویر" onclick="document.getElementById('file').click();" />
+            <input class="btn btn-success" type="submit" value="بارگذاری" id="uploadsubmit" disabled />
+        </form>
+        <hr />
+        <h4>قسمت تغییر سایر تصاویر خبر</h4>
+        <form id="form2" asp-page-handler="Upload2" method="post" enctype="multipart/form-data">
+            <input type="hidden" asp-for="news.Id" />
+            <input type="hidden" name="image1" value="@ViewData["ImageName"]" />
+            <input type="file" asp-for="upload2" accept="image/*" style="display:none;" id="file2" multiple />
+            <input class="btn btn-primary" type="button" value="انتخاب تصاویر" onclick="document.getElementById('file2').click();" />
+            <input class="btn btn-success" type="submit" value="بارگذاری" id="uploadsubmit2" disabled />
+        </form>
+        <hr />
+        <h4>تنظیم متن خبر</h4>
+        <form id="mainForm" method="post" asp-page="Edit">
+            <input type="hidden" asp-for="news.Id" />
+            <input type="hidden" name="image1" value="@ViewData["ImageName"]" />
+            <input type="hidden" name="image2" value="@ViewData["ImageName2"]" />
+            <div class="form-group mt-3">
+                <label class="control-label">عکس اصلی</label>
+                <input type="hidden" asp-for="news.Image" value="@ViewData["ImageName"]" class="form-control" />
+                <img class="img-thumbnail img-fluid" width="100" src="~/images/news/@ViewData["ImageName"]" />
+                <span asp-validation-for="news.Image" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">عنوان</label>
+                <input asp-for="news.Title" class="form-control" />
+                <span asp-validation-for="news.Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">متن</label>
+                <textarea asp-for="news.Body" class="form-control"></textarea>
+                <span asp-validation-for="news.Body" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">تاریخ</label>
+                <input asp-for="news.Date" type="text" id="gdate" class="form-control d-none" />
+                <input class="form-control" type="text" name="date" id="date" value="" />
+                <div>تاریخ قبلی : @(DateTime.Parse(ViewData["Date"].ToString()).toPersianDate())</div>
+                <div class="badge badge-info">برای تغییر تاریخ از کادر بالا تاریخ جدید را انتخاب کنید</div>
+                <span asp-validation-for="news.Date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">دسته بندی</label>
+                <select asp-for="news.NewsCategoryId" class="form-control" asp-items="ViewBag.NewsCat"></select>
+            </div>
+            <div class="form-group mt-3">
+                <label class="control-label">سایر تصاویر</label>
+                <input type="hidden" asp-for="news.Pics" value="@ViewData["ImageName2"]" class="form-control" />
+                <div id="pics-section">
+                    @if (ViewData["ImageName2"] != null)
+                    {
+                        @foreach (var item in ViewData["ImageName2"].ToString().Split(","))
+                        {
+                            <img class="img-thumbnail img-fluid" width="100" src="~/images/news/@item" />
+                        }
+                    }
+                    <a onclick="removePics()" class="btn btn-danger">حذف سایر تصاویر</a>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="ویرایش" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">بازگشت</a>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(
+            function () {
+                $('#file').change(
+                    function () {
+                        if ($(this).val()) {
+                            $('#uploadsubmit').removeAttr('disabled');
+                        }
+                        else {
+                            $('#uploadsubmit').attr('disabled', true);
+                        }
+                    });
+
+                $('#file2').change(
+                    function () {
+                        if ($(this).val()) {
+                            $('#uploadsubmit2').removeAttr('disabled');
+                        }
+                        else {
+                            $('#uploadsubmit2').attr('disabled', true);
+                        }
+                    });
+
+                $("#date").persianDatepicker({
+                    isRTL: !0,
+                    formatDate: "YYYY/MM/DD",
+                    persianNumber: !0,
+                    fontSize: 13,
+                    calendarPosition: {
+                        x: 0,
+                        y: 0,
+                    },
+                    onSelect: function () {
+                        $("#gdate").val($("#date").attr("data-gdate"));
+                    }
+                });
+            });
+
+        function removePics() {
+            $("#mainForm #news_Pics").val("");
+            $("#pics-section").hide();
+        }
+    </script>
+}

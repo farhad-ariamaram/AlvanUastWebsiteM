@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+@await Html.PartialAsync("_PartialNonIndexHead")
+
+<body>
+    @RenderBody()
+
+    @await Html.PartialAsync("_PartialMobileOffCanvas")
+
+    <div class="container-fluid" id="parentDiv">
+        <!--NAVBAR-->
+        @await Html.PartialAsync("_PartialNavbar")
+
+        <!-- CONTENT -->
+        <div class="static-page container">
+
+            <!-- SITEMAP -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="sitemap p-2 m-2">
+                        <span class=""><a href="@Url.Content("~/")">خانه</a></span>
+                        <span class=""><a href="">نتیجه جستجو</a></span>
+                    </div>
+                </div>
+            </div>
+            <!-- SITEMAP -->
+            <!-- ITEMS -->
+            <div class="row itemssection">
+                <div class="col-12">
+                    <div class="filter">
+                        <form class="form-inline d-flex justify-content-between">
+                            <div class="form-group col-5">
+                                <label for="category">دسته بندی&nbsp;</label>
+                                <select id="category" class="form-control">
+                                    <option selected>همه</option>
+                                    <option>اخبار</option>
+                                    <option>رویداد</option>
+                                    <option>اطلاعیه</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-5">
+                                <label class="text-nowrap" for="showinpage">تعداد در صفحه&nbsp;</label>
+                                <select id="showinpage" class="form-control">
+                                    <option selected>5</option>
+                                    <option>10</option>
+                                    <option>20</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn filter-btn"><i class="bi bi-funnel-fill"></i></button>
+                        </form>
+                    </div>
+                    <hr>
+                </div>
+                <div class="col-12">
+                    <div class="listofitems">
+
+                        @RenderSection("searchTitle", required: false)
+
+                        <div class="listofitems-container">
+                            @RenderSection("searchItem", required: false)
+                        </div>
+                    </div>
+                    <hr>
+                </div>
+                <div class="col-12">
+                    <div class="row justify-content-center">
+                        <ul class="pagination">
+                            @RenderSection("searchPaging", required: false)
+                        </ul>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="result-in-filter">
+                            @RenderSection("searchNo", required: false)
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ITEMS -->
+        </div>
+
+        @await Html.PartialAsync("_PartialFooter")
+    </div>
+
+    @await Html.PartialAsync("_PartialNonIndexJs")
+</body>
+
+</html>

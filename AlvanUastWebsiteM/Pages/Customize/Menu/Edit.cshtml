@@ -1,0 +1,76 @@
+﻿@page
+@model AlvanUastWebsiteM.Pages.Customize.Menu.EditModel
+@{
+    Layout = "_customize";
+}
+
+<h1>مدیریت منو ها</h1>
+
+<h4>ویرایش منو</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+
+        <div><button class="btn btn-success" onclick="showImageUploader()">ویرایش تصویر</button></div>
+        <form id="form" asp-page-handler="Upload" method="post" enctype="multipart/form-data">
+            <input type="hidden" asp-for="menu.Id" />
+            <input type="file" asp-for="upload" accept="image/*" style="display:none;" id="file" />
+            <input class="btn btn-primary" type="button" value="انتخاب تصویر" onclick="document.getElementById('file').click();" />
+            <input class="btn btn-success" type="submit" value="بارگذاری" id="uploadsubmit" disabled />
+        </form>
+
+        <form method="post" asp-page="Edit">
+            <input type="hidden" asp-for="menu.Id" />
+            <input type="hidden" asp-for="menu.Name" />
+            <input type="hidden" asp-for="menu.ParentName" />
+            <div class="form-group">
+                <label class="control-label">عنوان</label>
+                <div class="form-control" readonly>@Model.menu.Name</div>
+            </div>
+            <div class="form-group mt-3 text-center">
+                <label class="control-label">تصویر</label>
+                <input type="hidden" asp-for="menu.Image" value="@ViewData["ImageName"]" class="form-control" />
+                <img class="img-thumbnail img-fluid" width="100" src="~/images/menu/@ViewData["ImageName"]" />
+                <span asp-validation-for="menu.Image" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">محتوی</label>
+                <textarea asp-for="menu.Body" class="form-control"></textarea>
+                <span asp-validation-for="menu.Body" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="ویرایش" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">بازگشت</a>
+</div>
+
+@section Scripts {
+    <script src="~/dist/nicEdit/nicEdit.js"></script>
+    <script type="text/javascript">
+        bkLib.onDomLoaded(function () { nicEditors.allTextAreas() });
+    </script>
+    <script>
+        $(document).ready(
+            function () {
+                $("#form").hide();
+                $('input:file').change(
+                    function () {
+                        if ($(this).val()) {
+                            $('#uploadsubmit').removeAttr('disabled');
+                        }
+                        else {
+                            $('#uploadsubmit').attr('disabled', true);
+                        }
+                    });
+            });
+
+        function showImageUploader() {
+            $("#form").fadeIn();
+        }
+    </script>
+}

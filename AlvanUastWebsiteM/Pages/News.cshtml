@@ -1,0 +1,65 @@
+﻿@page "/News/{id}/{title}"
+@model AlvanUastWebsiteM.Pages.NewsModel
+@{
+    Layout = "_news";
+}
+
+@section sitemap{
+    <span class=""><a href="@Url.Content("~/")">خانه</a></span>
+    <span class=""><a href="/NewsArchive">اخبار</a></span>
+    <span class=""><a href="">@Model.news.Title</a></span>
+}
+
+@section news{
+    <h4 class="my-4" style="">@Model.news.Title</h4>
+    <div class="d-flex flex-row justify-content-between">
+        <span style="font-size:13px;color: #c3c3c3;"><span class="bi bi-calendar-check mycolor"></span> @Model.news.Date.toPersianDate()</span>
+        <span style="font-size:13px;color: #c3c3c3;"><span class="bi bi-tag mycolor"></span> @Model.news.NewsCategory.Name </span>
+        <span class="mycolor" style="font-size:13px;color: #c3c3c3;cursor:pointer"><span onclick="printDiv('newssection')" class="bi bi-printer"></span><span class="mx-1"></span><span onclick="navigator.clipboard.writeText(window.location.href);" class="bi bi-share"></span></span>
+    </div>
+    <img class="img-fluid img-thumbnail rounded mx-auto d-block mt-2" src="~/images/news/@Model.news.Image">
+    <p class="text-justify p-3">
+        @Model.news.Body
+    </p>
+    <div class="other-images">
+        @if (Model.news.Pics != null)
+        {
+            @foreach (var item in Model.news.Pics.Split(","))
+            {
+                <img class="img-fluid img-thumbnail rounded mx-auto d-block mt-2" src="~/images/news/@item">
+            }
+        }
+    </div>
+}
+
+@section sidemenu{
+    <aside class="test1 topics__aside sticky-sidebar__simple" style="position: relative; overflow: visible; box-sizing: border-box; min-height: 1px;">
+        <div class="theiaStickySidebar" style="padding-top: 0px; padding-bottom: 1px; position: static; transform: none; left: -17px; top: 0px;">
+            <div class="post-nav">
+                <div class="post-nav__body">
+                    <div class="_title">
+                        <span class="bold">آخرین اخبار</span>
+                    </div>
+                    <ul class="related-posts">
+                        @foreach (var item in Model.lastfivenewstitle)
+                        {
+                            <li class="related-posts__item">
+                                <a href="/News/@item.Id/@item.Title" title="@item.Title" class="image-wrapper">
+                                    <img width="60" height="60" src="~/images/news/@item.Image" class="image-wrapper__img wp-post-image" alt="">
+                                </a>
+                                <div class="detail-wrapper">
+                                    <a href="/News/@item.Id/@item.Title" title="@item.Title" class="detail-wrapper__title">@item.Title</a>
+                                    <div class="detail-wrapper__time">
+                                        <i class="icon-clock-icon"></i>
+                                        <span class="detail-wrapper__time--detail">@item.Date.toPersianDate()</span>
+                                    </div>
+                                </div>
+                            </li>
+                        }
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </aside>
+}

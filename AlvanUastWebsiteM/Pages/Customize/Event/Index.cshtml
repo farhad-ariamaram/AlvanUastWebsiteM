@@ -1,0 +1,60 @@
+﻿@page
+@model AlvanUastWebsiteM.Pages.Customize.Event.IndexModel
+@{
+    Layout = "_customize";
+}
+
+<h1>مدیریت رویداد ها</h1>
+
+<p>
+    <a class="btn btn-success m-1" asp-page="Create"><i class="bi bi-plus"></i></a>
+</p>
+<table class="table table-responsive table-striped text-center">
+    <thead>
+        <tr>
+            <th>
+                عنوان
+            </th>
+            <th>
+                تاریخ
+            </th>
+            <th>
+                عکس
+            </th>
+            <th>
+                متن
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.eventList)
+        {
+            <tr>
+                <td>
+                    @item.Title
+                </td>
+                <td>
+                    @item.Date.toPersianDate()
+                </td>
+                <td>
+                    <img class="img-thumbnail img-fluid" width="150" src="~/images/events/@item.Image" />
+                </td>
+                <td>
+                    @if (item.Body.Length > 100)
+                    {
+                        @item.Body.Substring(0, 99) @("...")
+                    }
+                    else
+                    {
+                        @item.Body
+                    }
+                </td>
+                <td>
+                    <a class="btn btn-warning text-white btn-block" asp-page="./Edit" asp-route-id="@item.Id" ><i class="bi bi-pencil-fill"></i></a>
+                    <a class="btn btn-danger btn-block" onclick="return confirm('آیا از حذف مطمئن می‌باشید؟')" asp-page-handler="Delete" asp-route-id="@item.Id" ><i class="bi bi-trash-fill"></i></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

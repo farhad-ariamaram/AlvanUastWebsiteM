@@ -1,0 +1,116 @@
+﻿@page
+@model AlvanUastWebsiteM.Pages.NoticeArchiveModel
+@{
+    Layout = "_archive";
+}
+
+@section sitemap{
+    <span class=""><a href="@Url.Content("~/")">خانه</a></span>
+    <span class=""><a href="">آرشیو اطلاعیه ها</a></span>
+}
+
+@section filter{
+    <form asp-page="./" method="get" class="form-inline d-flex justify-content-between">
+        <div class="form-group col-5">
+            <label for="category">دسته بندی&nbsp;</label>
+            <select id="category" class="form-control">
+                <option selected>همه</option>
+            </select>
+        </div>
+        <div class="form-group col-5">
+            <label class="text-nowrap" for="showinpage">تعداد در صفحه&nbsp;</label>
+            <select name="size" id="size" class="form-control">
+                @switch (Model.CurrentSize)
+                {
+                    case 5:
+                        <option selected>5</option>
+                        <option>10</option>
+                        <option>20</option>
+                        break;
+                    case 10:
+                        <option>5</option>
+                        <option selected>10</option>
+                        <option>20</option>
+                        break;
+                    case 20:
+                        <option>5</option>
+                        <option>10</option>
+                        <option selected>20</option>
+                        break;
+                    default:
+                        <option selected>5</option>
+                        <option>10</option>
+                        <option>20</option>
+                        break;
+                }
+            </select>
+        </div>
+        <button type="submit" class="btn filter-btn"><i class="bi bi-funnel-fill"></i></button>
+    </form>
+}
+
+@section Items{
+    <div class="page itemlist" data-results="30656">
+        <section class="box card horizontal full-card bottom-fade _cyan">
+            <div class="items">
+                <ul>
+                    @foreach (var item in Model.Items)
+                    {
+                        <li class="text">
+                            <figure>
+                                <a onclick="Swal.fire({title: '@(item.Body)',confirmButtonText: 'بستن',confirmButtonColor: '#0579a4',})">
+                                    <img src="~/images/notice/placeholder.webp" alt="@item.Title">
+                                </a>
+                            </figure>
+                            <div class="desc">
+                                <h3><a onclick="Swal.fire({title: '@(item.Body)',confirmButtonText: 'بستن',confirmButtonColor: '#0579a4',})">@item.Title</a></h3>
+                                <p>
+                                    @if (@item.Body.Length > 150)
+                                    {
+                                        @item.Body.Substring(0, 149) @("...")
+                                    }
+                                    else
+                                    {
+                                        @item.Body @("...")
+                                    }
+                                </p>
+                                <time><span class="bi bi-calendar-check"></span> @item.Date.toPersianDate()</time>
+                                <time style="left:5px"><span class="bi bi-tag"></span> اطلاعیه</time>
+                            </div>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </section>
+    </div>
+}
+
+@section archivePaging{
+    @if (Model.pager.Pages.Any())
+    {
+        <nav class="table-responsive">
+            <ul class="pagination justify-content-center d-flex flex-wrap">
+                @if (Model.pager.CurrentPage > 1)
+                {
+                    <li class="page-item"><a class="page-link" asp-page="NoticeArchive" asp-route-size="@Model.CurrentSize">اول</a></li>
+                    <li class="page-item"><a class="page-link" asp-page="NoticeArchive" asp-route-p="@(Model.pager.CurrentPage-1)" asp-route-size="@Model.CurrentSize">قبلی</a></li>
+                }
+
+                @foreach (var p in Model.pager.Pages)
+                {
+                    <li class="page-item @(p == Model.pager.CurrentPage ? "active" : "")"><a class="page-link" asp-page="NoticeArchive" asp-route-p="@p" asp-route-size="@Model.CurrentSize">@p</a></li>
+                }
+
+                @if (Model.pager.CurrentPage < Model.pager.TotalPages)
+                {
+                    <li class="page-item"><a class="page-link" asp-page="NoticeArchive" asp-route-p="@(Model.pager.CurrentPage+1)" asp-route-size="@Model.CurrentSize">بعدی</a></li>
+                    <li class="page-item"><a class="page-link" asp-page="NoticeArchive" asp-route-p="@(Model.pager.TotalPages)" asp-route-size="@Model.CurrentSize">آخر</a></li>
+                }
+            </ul>
+        </nav>
+    }
+}
+
+@section archiveNo{
+    <div> نتایج : @(Model.pager.CurrentPage == Model.pager.EndPage ? Model.pager.TotalItems + " از "+Model.pager.TotalItems : (Model.pager.CurrentPage * Model.pager.PageSize) + " از " + Model.pager.TotalItems)</div>
+}

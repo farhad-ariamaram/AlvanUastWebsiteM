@@ -1,0 +1,33 @@
+﻿@page "/Menu/{menuname}"
+@model AlvanUastWebsiteM.Pages.MenuModel
+@{
+    Layout = "_menu";
+}
+
+@section sitemap{
+    <span class=""><a href="@Url.Content("~/")">خانه</a></span>
+    <span class=""><a href="">منو</a></span>
+    <span class=""><a href="">@Model.menu.ParentName</a></span>
+    <span class=""><a href="">@Model.menu.Name</a></span>
+}
+
+@section title{
+    <h2 class="my-3">@Model.menu.Name</h2>
+}
+
+@section image{
+    <img class="img-fluid img-thumbnail rounded mx-auto d-block mt-2" src="~/images/menu/@Model.menu.Image">
+}
+
+@section staticContent{
+    @Html.Raw(Model.menu.Body)
+}
+
+@section sidemenu{
+
+    <li class="list-group-item active last-news-title">@Model.menu.ParentName</li>
+    @foreach (var item in Model.submenus)
+    {
+        <li class="list-group-item"><a href="/Menu/@item.Name">@item.Name</a></li>
+    }
+}

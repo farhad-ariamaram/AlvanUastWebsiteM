@@ -1,0 +1,6 @@
+﻿User-Agent: *
+Disallow: /customize/
+Disallow: /customize/*
+Allow: /
+
+Sitemap: https://www.alvan-uast.ir/sitemap.xml

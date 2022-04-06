@@ -1,0 +1,7 @@
+﻿Scaffold-DbContext "server=localhost;port=3306;user=root;password=123123;database=alvanuastdb;CharSet=utf8" MySql.Data.EntityFrameworkCore -OutputDir Models -f
+
+Connection String Local:
+"server=localhost;port=3306;user=root;password=123123;database=alvanuastdb;CharSet=utf8" 
+
+Connection String Remote:
+"server=localhost;port=3306;user=alvandbuser;password=Alvandb@123123;database=alvanuastdb;CharSet=utf8"

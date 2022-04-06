@@ -1,0 +1,343 @@
+﻿@page
+@model IndexModel
+
+
+@section news{
+    <!--News for desktop and tablets version-->
+    <div class="row sp-news-items mx-auto news-cards-deck container mt-5 d-xl-flex d-lg-flex d-md-flex d-sm-none d-xs-none d-none">
+        <div class="col-md-4">
+            <div class="sp-content sp-small">
+                <div class="sp-img-main"> <img src="images/news/@(Model.topFiveNews[0].Image)" class="img-responsive" style="height: 400px;"> </div>
+                <div class="sp-text">
+                    <a href="/News/@Model.topFiveNews[0].Id/@Model.topFiveNews[0].Title">
+                        <h3 class="sp-title">@(Model.topFiveNews[0].Title)</h3>
+                    </a>
+                    <div class="sp-desc"> @(Model.topFiveNews[0].Body) </div>
+                </div>
+                <div class="sp-date"> @(Model.topFiveNews[0].Date.toPersianDate()) </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="sp-content sp-small">
+                        <div class="sp-img"> <img src="images/news/@(Model.topFiveNews[1].Image)"> </div>
+                        <div class="sp-text">
+                            <a href="/News/@Model.topFiveNews[1].Id/@Model.topFiveNews[1].Title">
+                                <h3 class="sp-title">@(Model.topFiveNews[1].Title)</h3>
+                            </a>
+                            <div class="sp-desc">@(Model.topFiveNews[1].Body)</div>
+                        </div>
+                        <div class="sp-date"> @(Model.topFiveNews[1].Date.toPersianDate()) </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="sp-content sp-small">
+                        <div class="sp-img"> <img src="images/news/@(Model.topFiveNews[2].Image)"> </div>
+                        <div class="sp-text">
+                            <a href="/News/@Model.topFiveNews[2].Id/@Model.topFiveNews[2].Title">
+                                <h3 class="sp-title">@(Model.topFiveNews[2].Title) </h3>
+                            </a>
+                            <div class="sp-desc">@(Model.topFiveNews[2].Body) </div>
+                        </div>
+                        <div class="sp-date"> @(Model.topFiveNews[2].Date.toPersianDate()) </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="sp-content sp-small">
+                        <div class="sp-img"> <img src="images/news/@(Model.topFiveNews[3].Image)"> </div>
+                        <div class="sp-text">
+                            <a href="/News/@Model.topFiveNews[3].Id/@Model.topFiveNews[3].Title">
+                                <h3 class="sp-title">@(Model.topFiveNews[3].Title) </h3>
+                            </a>
+                            <div class="sp-desc"> @(Model.topFiveNews[3].Body) </div>
+                        </div>
+                        <div class="sp-date"> @(Model.topFiveNews[3].Date.toPersianDate()) </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="sp-content sp-small">
+                        <div class="sp-img"> <img src="images/news/@(Model.topFiveNews[4].Image)"> </div>
+                        <div class="sp-text">
+                            <a href="/News/@Model.topFiveNews[4].Id/@Model.topFiveNews[4].Title">
+                                <h3 class="sp-title">@(Model.topFiveNews[4].Title) </h3>
+                            </a>
+                            <div class="sp-desc"> @(Model.topFiveNews[4].Body)</div>
+                        </div>
+                        <div class="sp-date"> @(Model.topFiveNews[4].Date.toPersianDate()) </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--News carousel for mobile version-->
+    <div id="mobilenewscarousel" class="container mt-5 carousel slide sp-news-items d-md-none d-sm-block" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="col">
+                    <div class="sp-content sp-small">
+                        <div class="sp-img"> <img src="images/news/@(Model.topFiveNews[0].Image)" class="img-responsive" style="height: 200px;"> </div>
+                        <div class="sp-text">
+                            <a href="/News/@Model.topFiveNews[0].Id/@Model.topFiveNews[0].Title">
+                                <h3 class="sp-title">@(Model.topFiveNews[0].Title)</h3>
+                            </a>
+                            <div class="sp-desc"> @(Model.topFiveNews[0].Body) </div>
+                        </div>
+                        <div class="sp-date"> @(Model.topFiveNews[0].Date.toPersianDate())</div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class=" col">
+                    <div class="sp-content sp-small">
+                        <div class="sp-img"> <img src="images/news/@(Model.topFiveNews[1].Image)"> </div>
+                        <div class="sp-text">
+                            <a href="/News/@Model.topFiveNews[1].Id/@Model.topFiveNews[1].Title">
+                                <h3 class="sp-title">@(Model.topFiveNews[1].Title)</h3>
+                            </a>
+                            <div class="sp-desc"> @(Model.topFiveNews[1].Body) </div>
+                        </div>
+                        <div class="sp-date"> @(Model.topFiveNews[1].Date.toPersianDate()) </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class=" col">
+                    <div class="sp-content sp-small">
+                        <div class="sp-img"> <img src="images/news/@(Model.topFiveNews[2].Image)"> </div>
+                        <div class="sp-text">
+                            <a href="/News/@Model.topFiveNews[2].Id/@Model.topFiveNews[2].Title">
+                                <h3 class="sp-title">@(Model.topFiveNews[2].Title) </h3>
+                            </a>
+                            <div class="sp-desc">@(Model.topFiveNews[2].Body) </div>
+                        </div>
+                        <div class="sp-date"> @(Model.topFiveNews[2].Date.toPersianDate())  </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class=" col">
+                    <div class="sp-content sp-small">
+                        <div class="sp-img"> <img src="images/news/@(Model.topFiveNews[3].Image)"> </div>
+                        <div class="sp-text">
+                            <a href="/News/@Model.topFiveNews[3].Id/@Model.topFiveNews[3].Title">
+                                <h3 class="sp-title">@(Model.topFiveNews[3].Title) </h3>
+                            </a>
+                            <div class="sp-desc"> @(Model.topFiveNews[3].Body) </div>
+                        </div>
+                        <div class="sp-date"> @(Model.topFiveNews[3].Date.toPersianDate())</div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class=" col">
+                    <div class="sp-content sp-small">
+                        <div class="sp-img"> <img src="images/news/@(Model.topFiveNews[4].Image)"> </div>
+                        <div class="sp-text">
+                            <a href="/News/@Model.topFiveNews[4].Id/@Model.topFiveNews[4].Title">
+                                <h3 class="sp-title">@(Model.topFiveNews[4].Title) </h3>
+                            </a>
+                            <div class="sp-desc"> @(Model.topFiveNews[4].Body) </div>
+                        </div>
+                        <div class="sp-date"> @(Model.topFiveNews[4].Date.toPersianDate()) </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#mobilenewscarousel" role="button" data-slide="prev"> <span class="carousel-control-prev-icon" aria-hidden="true"></span> <span class="sr-only">Previous</span> </a>
+        <a class="carousel-control-next" href="#mobilenewscarousel" role="button" data-slide="next"> <span class="carousel-control-next-icon" aria-hidden="true"></span> <span class="sr-only">Next</span> </a>
+    </div>
+}
+
+
+@section notices{
+    <!--Notices Section-->
+    <div class="grid">
+        @foreach (var item in Model.topTenNotice)
+        {
+            <div class="grid-item @if (item.Title.Length < 50) { @("short") } else if (item.Title.Length > 50 && item.Title.Length < 75) { @("tall") } else { @("taller") } ">
+                <p><a onclick="Swal.fire({title: '@(item.Body)',confirmButtonText: 'بستن',confirmButtonColor: '#0579a4',})">@item.Title</a></p>
+                <i class="badge event-date"><span class="bi bi-calendar-check mr-2"></span>@item.Date.toPersianDate()</i>
+            </div>
+        }
+    </div>
+}
+
+@section events{
+    <!--EVENT CARDS-->
+    <div class="row">
+        <style>
+            .card3:nth-child(1):before {
+                background-image: url("images/events/@(Model.topFourEvent[0].Image)");
+            }
+
+            .card3:nth-child(2):before {
+                background-image: url("images/events/@(Model.topFourEvent[1].Image)");
+            }
+
+            .card3:nth-child(3):before {
+                background-image: url("images/events/@(Model.topFourEvent[2].Image)");
+            }
+
+            .card3:nth-child(4):before {
+                background-image: url("images/events/@(Model.topFourEvent[3].Image)");
+            }
+        </style>
+        <main class="page-content2">
+            @foreach (var item in Model.topFourEvent)
+            {
+                <div class="card2 card3">
+                    <div class="content2">
+                        <h2 class="title2">@item.Title</h2>
+                        <button class="btn2"><a class="card-link-a" href="/Event/@item.Id/@item.Title">ادامه مطلب</a></button>
+                    </div>
+                </div>
+            }
+        </main>
+    </div>
+}
+
+
+@section timeline{
+    <!--TIMELINE-->
+    @if (Model.currentTimeline.Nimsal == 1)
+    {
+        //تقویم آموزشی ترم اول
+        <div class="line_box stav_projektu" style="margin: 40px 0 100px 0;" dir="ltr">
+            <div class="text_circle @if (DateTime.Now > Model.currentTimeline.EntekhabVahed) {@("done")}">
+                <div class="circle">
+                    <h4>انتخاب واحد</h4>
+                </div>
+                <a class="tvar">
+                    @if (DateTime.Now > Model.currentTimeline.EntekhabVahed)
+                    {@Html.Raw("<span></span>")}
+                </a>
+                <p>
+                    1<br> شهریور
+                </p>
+            </div>
+            <div class="text_circle @if (DateTime.Now > Model.currentTimeline.ShoroeKelasha) {@("done")}">
+                <div class="circle">
+                    <h4>شروع کلاس ها</h4>
+                </div>
+                <a class="tvar">
+                    @if (DateTime.Now > Model.currentTimeline.ShoroeKelasha)
+                    {@Html.Raw("<span></span>")}
+                </a>
+                <p>
+                    15<br> شهریور
+                </p>
+            </div>
+            <div class="text_circle @if (DateTime.Now > Model.currentTimeline.HazfoEzafe) {@("done")}">
+                <div class="circle">
+                    <h4>حذف و اضافه</h4>
+                </div>
+                <a class="tvar">
+                    @if (DateTime.Now > Model.currentTimeline.HazfoEzafe)
+                    {@Html.Raw("<span></span>")}
+                </a>
+                <p>
+                    29<br> شهریور
+                </p>
+            </div>
+            <div class="text_circle @if (DateTime.Now > Model.currentTimeline.PayaneKelasha) {@("done")}">
+                <div class="circle">
+                    <h4>پایان کلاس ها</h4>
+                </div>
+                <a class="tvar">
+                    @if (DateTime.Now > Model.currentTimeline.PayaneKelasha)
+                    {@Html.Raw("<span></span>")}
+                </a>
+                <p>
+                    18<br> خرداد
+                </p>
+            </div>
+            <div class="text_circle @if (DateTime.Now > Model.currentTimeline.Emtehanat) {@("done")}">
+                <div class="circle">
+                    <h4>شروع امتحانات</h4>
+                </div>
+                <a class="tvar">
+                    @if (DateTime.Now > Model.currentTimeline.Emtehanat)
+                    {@Html.Raw("<span></span>")}
+                </a>
+                <p>
+                    26<br> خرداد
+                </p>
+            </div>
+        </div>
+    }
+    else
+    {
+        //تقویم آموزشی ترم دوم
+        <div class="line_box stav_projektu" style="margin: 40px 0 100px 0;" dir="ltr">
+            <div class="text_circle @if (DateTime.Now > Model.currentTimeline.EntekhabVahed) {@("done")}">
+                <div class="circle">
+                    <h4>انتخاب واحد</h4>
+                </div>
+                <a class="tvar">
+                    @if (DateTime.Now > Model.currentTimeline.EntekhabVahed)
+                    {@Html.Raw("<span></span>")}
+                </a>
+                <p>
+                    9<br> بهمن
+                </p>
+            </div>
+            <div class="text_circle @if (DateTime.Now > Model.currentTimeline.ShoroeKelasha) {@("done")}">
+                <div class="circle">
+                    <h4>شروع کلاس ها</h4>
+                </div>
+                <a class="tvar">
+                    @if (DateTime.Now > Model.currentTimeline.ShoroeKelasha)
+                    {@Html.Raw("<span></span>")}
+                </a>
+                <p>
+                    16<br> بهمن
+                </p>
+            </div>
+            <div class="text_circle @if (DateTime.Now > Model.currentTimeline.HazfoEzafe) {@("done")}">
+                <div class="circle">
+                    <h4>حذف و اضافه</h4>
+                </div>
+                <a class="tvar">
+                    @if (DateTime.Now > Model.currentTimeline.HazfoEzafe)
+                    {@Html.Raw("<span></span>")}
+                </a>
+                <p>
+                    30<br> بهمن
+                </p>
+            </div>
+            <div class="text_circle @if (DateTime.Now > Model.currentTimeline.PayaneKelasha) {@("done")}">
+                <div class="circle">
+                    <h4>پایان کلاس ها</h4>
+                </div>
+                <a class="tvar">
+                    @if (DateTime.Now > Model.currentTimeline.PayaneKelasha)
+                    {@Html.Raw("<span></span>")}
+                </a>
+                <p>
+                    18<br> خرداد
+                </p>
+            </div>
+            <div class="text_circle @if (DateTime.Now > Model.currentTimeline.Emtehanat) {@("done")}">
+                <div class="circle">
+                    <h4>شروع امتحانات</h4>
+                </div>
+                <a class="tvar">
+                    @if (DateTime.Now > Model.currentTimeline.Emtehanat)
+                    {@Html.Raw("<span></span>")}
+                </a>
+                <p>
+                    26<br> خرداد
+                </p>
+            </div>
+        </div>
+    }
+}

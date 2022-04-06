@@ -1,0 +1,68 @@
+﻿@page
+@model AlvanUastWebsiteM.Pages.Customize.Timeline.IndexModel
+@{
+    Layout = "_customize";
+}
+
+<h1>مدیریت تقویم آموزشی</h1>
+
+<table class="table table-responsive table-striped text-center">
+    <thead>
+        <tr>
+            <th>
+                نیمسال
+            </th>
+            <th>
+                انتخاب واحد
+            </th>
+            <th>
+                شروع کلاس ها
+            </th>
+            <th>
+                حذف و اضافه
+            </th>
+            <th>
+                پایان کلاس ها
+            </th>
+            <th>
+                شروع امتحانات
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.timeline)
+        {
+            <tr>
+                <td>
+                    @if (item.Nimsal == 1)
+                    {
+                        @("اول")
+                    }
+                    else
+                    {
+                        @("دوم")
+                    }
+                </td>
+                <td>
+                    @item.EntekhabVahed.toPersianDate()
+                </td>
+                <td>
+                    @item.ShoroeKelasha.toPersianDate()
+                </td>
+                <td>
+                    @item.HazfoEzafe.toPersianDate()
+                </td>
+                <td>
+                    @item.PayaneKelasha.toPersianDate()
+                </td>
+                <td>
+                    @item.Emtehanat.toPersianDate()
+                </td>
+                <td>
+                    <a class="btn btn-warning text-white btn-block" asp-page="./Edit" asp-route-id="@item.Id"><i class="bi bi-pencil-fill"></i></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

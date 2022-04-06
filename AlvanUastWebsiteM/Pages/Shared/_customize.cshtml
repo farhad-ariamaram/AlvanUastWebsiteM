@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html lang="fa-IR" dir="rtl">
+<head>
+    <!-- meta -->
+    <meta charset="utf-8">
+    <meta content="text/html; charset=UTF-8" http-equiv="content-type" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>مدیریت محتوی - دانشگاه علمی کاربردی مرکز آموزش الوان ثابت</title>
+
+    <!-- favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#2b5797">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- css -->
+    <link href="~/css/bootstrap453.min.css" rel="stylesheet" type="text/css">
+    <link href="~/dist/bootstrap-icon/bootstrap-icons.css" rel="stylesheet" type="text/css">
+    <link href="~/dist/persianDatePicker/persianDatepicker-default.css" rel="stylesheet" />
+</head>
+<body>
+
+    @*NAVBAR*@
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/Customize">مدیریت محتوی سایت</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/Customize/News">مدیریت اخبار</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Customize/Event">مدیریت رویداد ها</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Customize/Notice">مدیریت اطلاعیه ها</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Customize/Menu">مدیریت منو ها</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Customize/Timeline">مدیریت تقویم آموزشی</a>
+                </li>
+            </ul>
+            <div class="form-inline my-2 my-lg-0 mx-2">
+                <a href="@Url.Content("~/")">بازگشت به سایت</a>
+            </div>
+            <div class="form-inline my-2 my-lg-0 mx-2">
+                <a class="text-danger" href="@Url.Content("~/Customize/Logout")">خروج</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- js -->
+    <script src="~/js/jquery-3.4.1.min.js"></script>
+    <script src="~/js/popper.min.js"></script>
+    <script src="~/js/bootstrap453.min.js"></script>
+    <script src="~/dist/persianDatePicker/persianDatepicker.min.js"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

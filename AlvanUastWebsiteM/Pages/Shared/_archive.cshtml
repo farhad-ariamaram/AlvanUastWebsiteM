@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fa-IR" dir="rtl">
+
+@await Html.PartialAsync("_PartialNonIndexHead")
+
+<body>
+    @RenderBody()
+
+    @await Html.PartialAsync("_PartialMobileOffCanvas")
+
+    <div class="container-fluid" id="parentDiv">
+        <!--NAVBAR-->
+        @await Html.PartialAsync("_PartialNavbar")
+
+        <!-- CONTENT -->
+        <div class="static-page container">
+
+            <!-- SITEMAP -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="sitemap p-2 m-2">
+                        @RenderSection("sitemap", required: false)
+                    </div>
+                </div>
+            </div>
+            <!-- SITEMAP -->
+            <!-- ITEMS -->
+            <div class="row itemssection">
+                <div class="col-12">
+                    <div class="filter">
+                        @RenderSection("filter", required: false)
+                    </div>
+                    <hr>
+                </div>
+                <div class="col-12">
+                    @RenderSection("Items", required: false)
+                    @*<div class="listofitems">
+                        @RenderSection("archiveTitle", required: false)
+
+                        <div class="listofitems-container">
+                            @RenderSection("archiveItem", required: false)
+                        </div>
+                    </div>*@
+                    <hr>
+                </div>
+                <div class="col-12">
+                    @RenderSection("archivePaging", required: false)
+                    
+                    <div class="row justify-content-center">
+                        <div class="result-in-filter">
+                            @RenderSection("archiveNo", required: false)
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ITEMS -->
+        </div>
+
+        @await Html.PartialAsync("_PartialFooter")
+    </div>
+
+    @await Html.PartialAsync("_PartialNonIndexJs")
+</body>
+
+</html>

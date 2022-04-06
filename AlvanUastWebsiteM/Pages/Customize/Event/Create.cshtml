@@ -1,0 +1,85 @@
+﻿@page
+@model AlvanUastWebsiteM.Pages.Customize.Event.CreateModel
+@{
+    Layout = "_customize";
+}
+
+<h1>مدیریت رویداد ها</h1>
+
+<h4>افزودن رویداد جدید</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+
+        <h4>قسمت انتخاب تصویر اصلی رویداد (اجباری)</h4>
+        <form id="form" asp-page-handler="Upload" method="post" enctype="multipart/form-data">
+            <input type="file" asp-for="upload" accept="image/*" style="display:none;" id="file" />
+            <input class="btn btn-primary" type="button" value="انتخاب تصویر" onclick="document.getElementById('file').click();" />
+            <input class="btn btn-success" type="submit" value="بارگذاری" id="uploadsubmit" disabled />
+        </form>
+        <hr />
+        <form method="post" asp-page="Create">
+            <input type="hidden" name="image1" value="@ViewData["ImageName"]" />
+            <div class="form-group mt-3 text-center">
+                <label class="control-label">عکس</label>
+                <input type="hidden" asp-for="eventt.Image" value="@ViewData["ImageName"]" class="form-control" />
+                <img class="img-thumbnail img-fluid" width="100" src="~/images/events/@ViewData["ImageName"]" />
+                <span asp-validation-for="eventt.Image" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">عنوان</label>
+                <input asp-for="eventt.Title" class="form-control" />
+                <span asp-validation-for="eventt.Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">متن</label>
+                <textarea asp-for="eventt.Body" class="form-control"></textarea>
+                <span asp-validation-for="eventt.Body" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">تاریخ</label>
+                <input asp-for="eventt.Date" type="text" id="gdate" class="form-control d-none" />
+                <input class="form-control" type="text" name="date" id="date" value="" />
+                <span asp-validation-for="eventt.Date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="افزودن" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">بازگشت</a>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(
+            function () {
+                $('input:file').change(
+                    function () {
+                        if ($(this).val()) {
+                            $('#uploadsubmit').removeAttr('disabled');
+                        }
+                        else {
+                            $('#uploadsubmit').attr('disabled', true);
+                        }
+                    });
+
+                $("#date").persianDatepicker({
+                    isRTL: !0,
+                    formatDate: "YYYY/MM/DD",
+                    persianNumber: !0,
+                    fontSize: 13,
+                    calendarPosition: {
+                        x: 0,
+                        y: 0,
+                    },
+                    onSelect: function () {
+                        $("#gdate").val($("#date").attr("data-gdate"));
+                    }
+                });
+            });
+    </script>
+}

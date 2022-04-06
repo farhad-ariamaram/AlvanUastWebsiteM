@@ -1,0 +1,45 @@
+﻿@page
+@model AlvanUastWebsiteM.Pages.Customize.Menu.IndexModel
+@{
+    Layout = "_customize";
+}
+
+<h1>مدیریت منو ها</h1>
+
+<table class="table table-responsive table-striped text-center">
+    <thead>
+        <tr>
+            <th>
+                منو
+            </th>
+            <th>
+                عکس
+            </th>
+            <th>
+                محتوی
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.menuList)
+        {
+            <tr>
+                <td>
+                    @item.Name
+                </td>
+                <td>
+                    <img class="img-thumbnail img-fluid" width="150" src="~/images/menu/@item.Image" />
+                </td>
+                <td>
+                    <div class="border rounded overflow-auto" style="max-height:200px;max-width:150px">
+                        @Html.Raw(item.Body)
+                    </div>
+                </td>
+                <td>
+                    <a class="btn btn-warning text-white btn-block" asp-page="./Edit" asp-route-id="@item.Id"><i class="bi bi-pencil-fill"></i></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

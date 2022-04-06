@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="fa-IR" dir="rtl">
+
+<head>
+
+    <!-- meta -->
+    <meta charset="utf-8">
+    <meta content="text/html; charset=UTF-8" http-equiv="content-type" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>صفحه اصلی - دانشگاه علمی کاربردی مرکز آموزش الوان ثابت</title>
+
+    <!-- favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#2b5797">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- css -->
+    <link rel="stylesheet" href="~/css/bootstrap453.min.css">
+    <link rel="stylesheet" href="~/dist/owlcarousel/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/dist/owlcarousel/assets/owl.theme.default.min.css">
+    <link href="~/dist/bootstrap-icon/bootstrap-icons.css" rel="stylesheet" type="text/css">
+    <link href="~/dist/gallery-gird/gallery-grid.css" rel="stylesheet" type="text/css">
+    <link href="~/css/custom.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    @RenderBody()
+
+    @await Html.PartialAsync("_PartialMobileOffCanvas")
+
+    <div class="container-fluid" id="parentDiv">
+
+        <!--HEADER-->
+        <section id="HeaderSection" class="row min-vh-100 header-section">
+            <div class="col-12 align-self-start">
+                <div class="row align-items-center">
+                    <div class="col-xl-5 col-lg-5 col-md-5 col-sm-4 col-xs-4 col-4 ">
+                        <div class="large-nav-menu d-none d-lg-flex justify-content-center ">
+                            <ul class="nav flex-nowrap ">
+                                <li class="nav-item"><a id="modiriatDDB" class="nav-link text-white">مدیریت</a></li>
+                                <li class="nav-item"><a id="amoozeshDDB" class="nav-link text-white">آموزش</a></li>
+                                <li class="nav-item"><a id="pajooheshDDB" class="nav-link text-white">پژوهش</a></li>
+                                <li class="nav-item"><a id="daneshjooeeDDB" class="nav-link text-white">دانشجویی</a></li>
+                                <li class="nav-item"><a id="edariDDB" class="nav-link text-white">اداری</a></li>
+                                <!--DROPDOWN-MENU-MODIRIAT-->
+                                <div class="dropdown-menu" id="modiriatDDM">
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <div class="col-4">
+                                                <div class="row">
+                                                    <div class="col-12 dropdown-title">
+                                                        <span>حوزه ریاست</span>
+                                                        <hr class="m-0">
+                                                    </div>
+                                                    <div class="col-6 mt-3">
+                                                        <ul>
+                                                            <li><a href="/Menu/رئیس دانشگاه">رئیس دانشگاه</a></li>
+                                                            <li><a href="/Menu/اساس نامه">اساس نامه</a></li>
+                                                            <li><a href="/Menu/ساختار سازمانی">ساختار سازمانی</a></li>
+                                                            <li><a href="/Menu/آیین نامه و مقررات">آیین نامه و مقررات</a></li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="col-6 mt-3">
+                                                        <ul>
+                                                            <li><a href="/Menu/هیئت امنا">هیئت امنا</a></li>
+                                                            <li><a href="/Menu/مدیر امور حقوقی">مدیر امور حقوقی</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-4">
+                                                <div class="row">
+                                                    <div class="col-12 dropdown-title">
+                                                        <span>معاونت ها</span>
+                                                        <hr class="m-0">
+                                                    </div>
+                                                    <div class="col-6 mt-3">
+                                                        <ul>
+                                                            <li><a href="/Menu/معاونت آموزشی">معاونت آموزشی</a></li>
+                                                            <li><a href="/Menu/معاونت پژوهشی">معاونت پژوهشی</a></li>
+                                                            <li><a href="/Menu/معاونت فناوری اطلاعات و ارتباطات">معاونت فناوری اطلاعات و ارتباطات</a></li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="col-6 mt-3">
+                                                        <ul>
+                                                            <li><a href="/Menu/معاونت فرهنگی و دانشجویی">معاونت فرهنگی و دانشجویی</a></li>
+                                                            <li><a href="/Menu/معاونت اداری و مالی">معاونت اداری و مالی</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-4 text-center">
+                                                <br>
+                                                <br>
+                                                <span class="dropdown-img">مدیریت</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--DROPDOWN-MENU-AMOOZESH-->
+                                <div class="dropdown-menu" id="amoozeshDDM">
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <div class="col-4">
+                                                <div class="row">
+                                                    <div class="col-12 dropdown-title">
+                                                        <span>آموزشی و تحصیلات تکمیلی</span>
+                                                        <hr class="m-0">
+                                                    </div>
+                                                    <div class="col-6 mt-3">
+                                                        <ul>
+                                                            <li><a href="/Menu/امور آموزشی">امور آموزشی</a></li>
+                                                            <li><a href="/Menu/امور تحصیلات تکمیلی">امور تحصیلات تکمیلی</a></li>
+                                                            <li><a href="/Menu/آموزش بلند مدت">آموزش بلند مدت</a></li>
+                                                            <li><a href="/Menu/آموزش کوتاه مدت">آموزش کوتاه مدت</a></li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="col-6 mt-3">
+                                                        <ul>
+                                                            <li><a href="/Menu/فرم های آموزشی">فرم های آموزشی</a></li>
+                                                            <li><a href="/Menu/قوانین و مقررات آموزشی">قوانین و مقررات آموزشی</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-4">
+                                                <div class="row">
+                                                    <div class="col-12 dropdown-title">
+                                                        <span>رشته های تحصیلی</span>
+                                                        <hr class="m-0">
+                                                    </div>
+                                                    <div class="col-6 mt-3">
+                                                        <ul>
+                                                            <li><a href="/Menu/فناوری الکترونیک صنعتی">فناوری الکترونیک صنعتی</a></li>
+                                                            <li><a href="/Menu/فناوری پلیمر - رنگ سازی">فناوری پلیمر - رنگ سازی</a></li>
+                                                            <li><a href="/Menu/فناوری صنایع شیمیایی">فناوری صنایع شیمیایی</a></li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="col-6 mt-3">
+                                                        <ul>
+                                                            <li><a href="/Menu/حسابداری">حسابداری</a></li>
+                                                            <li><a href="/Menu/ایمنی کار و حفاظت فنی">ایمنی کار و حفاظت فنی</a></li>
+                                                            <li><a href="/Menu/برق صنعتی">برق صنعتی</a></li>
+                                                            <li><a href="/Menu/شیمی آزمایشگاهی - صنعتی">شیمی آزمایشگاهی - صنعتی</a></li>
+                                                            <li><a href="/Menu/صنایع شیمیایی - رنگ سازی">صنایع شیمیایی - رنگ سازی</a></li>
+                                                            <li><a href="/Menu/مکانیک تاسیسات - صنعتی">مکانیک تاسیسات - صنعتی</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-4 text-center">
+                                                <br>
+                                                <br>
+                                                <span class="dropdown-img">آموزش</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--DROPDOWN-MENU-PAJOOHESH-->
+                                <div class="dropdown-menu" id="pajooheshDDM">
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <div class="col-4">
+                                                <div class="row">
+                                                    <div class="col-12 dropdown-title">
+                                                        <span>پژوهشی و فناوری</span>
+                                                        <hr class="m-0">
+                                                    </div>
+                                                    <div class="col-6 mt-3">
+                                                        <ul>
+                                                            <li><a href="/Menu/امور پژوهشی">امور پژوهشی</a></li>
+                                                            <li><a href="/Menu/امور فناوری">امور فناوری</a></li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="col-6 mt-3">
+                                                        <ul>
+                                                            <li><a href="/Menu/مرکز رشد و نوآوری">مرکز رشد و نوآوری</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-4">
+                                                <div class="row">
+                                                    <div class="col-12 dropdown-title">
+                                                        <span>آزمایشگاه ها و پژوهشکده ها</span>
+                                                        <hr class="m-0">
+                                                    </div>
+                                                    <div class="col-6 mt-3">
+                                                        <ul>
+                                                            <li><a href="/Menu/آزمایشگاه شیمی">آزمایشگاه شیمی</a></li>
+                                                            <li><a href="/Menu/آزمایشگاه نساجی">آزمایشگاه نساجی</a> </li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="col-6 mt-3">
+                                                        <ul>
+                                                            <li><a href="/Menu/واحد تحقیق و توسعه">واحد تحقیق و توسعه</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-4 text-center">
+                                                <br>
+                                                <br>
+                                                <span class="dropdown-img">پژوهش</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--DROPDOWN-MENU-DANESHJOOEE-->
+                                <div class="dropdown-menu" id="daneshjooeeDDM">
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <div class="col-4">
+                                                <div class="row">
+                                                    <div class="col-12 dropdown-title">
+                                                        <span>دانشجویی و فرهنگی</span>
+                                                        <hr class="m-0">
+                                                    </div>
+                                                    <div class="col-6 mt-3">
+                                                        <ul>
+                                                            <li><a href="/Menu/امور دانشجویی">امور دانشجویی</a></li>
+                                                            <li><a href="/Menu/امور فرهنگی و اجتماعی">امور فرهنگی و اجتماعی</a></li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="col-6 mt-3">
+                                                        <ul>
+                                                            <li><a href="/Menu/امور تربیت بدنی">امور تربیت بدنی</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-4">
+                                                <div class="row">
+                                                    <div class="col-12 dropdown-title">
+                                                        <span>امور دانشجویی</span>
+                                                        <hr class="m-0">
+                                                    </div>
+                                                    <div class="col-6 mt-3">
+                                                        <ul>
+                                                            <li><a href="/Menu/اداره خوابگاه ها">اداره خوابگاه ها</a> </li>
+                                                            <li><a href="/Menu/اداره تغذیه">اداره تغذیه</a></li>
+                                                            <li><a href="/Menu/اداره رفاه">اداره رفاه</a></li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="col-6 mt-3">
+                                                        <ul>
+                                                            <li><a href="/Menu/صندوق رفاه دانشجویان">صندوق رفاه دانشجویان</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-4 text-center">
+                                                <br>
+                                                <br>
+                                                <span class="dropdown-img">دانشجویی</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--DROPDOWN-MENU-EDARI-->
+                                <div class="dropdown-menu" id="edariDDM">
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <div class="col-4">
+                                                <div class="row">
+                                                    <div class="col-12 dropdown-title">
+                                                        <span>اداری و مالی</span>
+                                                        <hr class="m-0">
+                                                    </div>
+                                                    <div class="col-6 mt-3">
+                                                        <ul>
+                                                            <li><a href="/Menu/امور اداری">امور اداری</a></li>
+                                                            <li><a href="/Menu/امور شهریه">امور شهریه</a></li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="col-6 mt-3">
+                                                        <ul>
+                                                            <li><a href="/Menu/امور مالی">امور مالی</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-4">
+                                                <div class="row">
+                                                    <div class="col-12 dropdown-title">
+                                                        <span>برنامه ریزی و توسعه</span>
+                                                        <hr class="m-0">
+                                                    </div>
+                                                    <div class="col-6 mt-3">
+                                                        <ul>
+                                                            <li><a href="/Menu/امور فناوری اطلاعات">امور فناوری اطلاعات</a></li>
+                                                            <li><a href="/Menu/ارتباط با صنعت">ارتباط با صنعت</a></li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="col-6 mt-3">
+                                                        <ul>
+                                                            <li><a href="/Menu/طرح‌های عمرانی">طرح‌های عمرانی</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-4 text-center">
+                                                <br>
+                                                <br>
+                                                <span class="dropdown-img">اداری</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </ul>
+                        </div>
+                        <div class="small-nav-menu d-lg-none text-center"> <a id="offcanvas-btn" role="button"><i class="bi bi-list text-white"></i></a> </div>
+                    </div>
+                    <div class="col-xl-2 col-lg-2 col-md-2 col-sm-4 col-xs-4 col-4 text-center">
+                        <div class="logo"> <a href="@Url.Content("~/")"><img src="~/images/logo.png" alt="" class="logo-img" /></a> </div>
+                    </div>
+                    <div class="col-xl-5 col-lg-5 col-md-5 col-sm-4 col-xs-4 col-4">
+                        <div class="large-left-nav-menu">
+                            <ul class="nav flex-nowrap justify-content-center ">
+                                <li class="nav-item"><a onclick="Swal.fire({position: 'center',icon: 'info',title: 'The English version is under development and will be available soon. Thanks for your patience',showConfirmButton: false,timer: 5000})" class="nav-link text-white">EN</a></li>
+                                <li class="nav-item"><a href="#" type="button" class="nav-link text-white" data-toggle="modal" data-target="#searchModal"><i class="bi bi-search"></i></a></li>
+                                <li class="nav-item"><a href="@Url.Content("~/")" class="nav-link text-white d-none d-sm-inline-block"><i class="bi bi-house-door"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-6 col-lg-6 col-md-8 col-sm-12 col-xs-12 ml-auto position-absolute" style="left:0;bottom:15%;background: rgba(0, 0, 0, .4);padding: 5px">
+                <div class="owl-carousel owl-theme owl-rtl owl-loaded owl-drag">
+                    <div class="owl-stage-outer">
+                        <div class="owl-stage">
+                            <div class="owl-item active">
+                                <a class="item" target="_blank" href="https://sateb.uast.ac.ir/"> <img class="rounded" alt="" src="images/topnotice/sateb.webp"></a>
+                            </div>
+                            <div class="owl-item active">
+                                <a class="item" target="_blank" href="https://hauast.ir/login"> <img class="rounded" alt="" src="images/topnotice/amoozesh.webp"></a>
+                            </div>
+                            <div class="owl-item active">
+                                <a class="item" target="_blank" href="https://office.uast.ac.ir/UserLogin.aspx"> <img class="rounded" alt="" src="images/topnotice/chargon.webp"></a>
+                            </div>
+                            <div class="owl-item active">
+                                <a class="item" target="_blank" href="https://edu.uast.ac.ir/CAS/Account/Login?ReturnUrl=%2fEducation"> <img class="rounded" alt="" src="images/topnotice/Hamava.webp"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12">
+                <a href="#" class="arrow" id="spdown"></a>
+            </div>
+        </section>
+
+        <!--NAVBAR-->
+        <div class="mynav" id="mynav">
+            <div class="row mynavbar">
+                <div class="col-12 align-self-start">
+                    <div class="row align-items-center">
+                        <div class="col-xl-5 col-lg-5 col-md-5 col-sm-4 col-xs-4 col-4 ">
+                            <div class="large-nav-menu d-none d-lg-flex justify-content-center ">
+                                <ul class="nav flex-nowrap ">
+                                    <li class="nav-item"><a id="modiriatDDB2" class="nav-link text-white">مدیریت</a></li>
+                                    <li class="nav-item"><a id="amoozeshDDB2" class="nav-link text-white">آموزش</a></li>
+                                    <li class="nav-item"><a id="pajooheshDDB2" class="nav-link text-white">پژوهش</a></li>
+                                    <li class="nav-item"><a id="daneshjooeeDDB2" class="nav-link text-white">دانشجویی</a></li>
+                                    <li class="nav-item"><a id="edariDDB2" class="nav-link text-white">اداری</a></li>
+                                    <!--DROPDOWN-MENU-MODIRIAT-->
+                                    <div class="dropdown-menu" id="modiriatDDM2">
+                                        <div class="container-fluid">
+                                            <div class="row">
+                                                <div class="col-4">
+                                                    <div class="row">
+                                                        <div class="col-12 dropdown-title">
+                                                            <span>حوزه ریاست</span>
+                                                            <hr class="m-0">
+                                                        </div>
+                                                        <div class="col-6 mt-3">
+                                                            <ul>
+                                                                <li><a href="/Menu/رئیس دانشگاه">رئیس دانشگاه</a></li>
+                                                                <li><a href="/Menu/اساس نامه">اساس نامه</a></li>
+                                                                <li><a href="/Menu/ساختار سازمانی">ساختار سازمانی</a></li>
+                                                                <li><a href="/Menu/آیین نامه و مقررات">آیین نامه و مقررات</a></li>
+                                                            </ul>
+                                                        </div>
+                                                        <div class="col-6 mt-3">
+                                                            <ul>
+                                                                <li><a href="/Menu/هیئت امنا">هیئت امنا</a></li>
+                                                                <li><a href="/Menu/مدیر امور حقوقی">مدیر امور حقوقی</a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-4">
+                                                    <div class="row">
+                                                        <div class="col-12 dropdown-title">
+                                                            <span>معاونت ها</span>
+                                                            <hr class="m-0">
+                                                        </div>
+                                                        <div class="col-6 mt-3">
+                                                            <ul>
+                                                                <li><a href="/Menu/معاونت آموزشی">معاونت آموزشی</a></li>
+                                                                <li><a href="/Menu/معاونت پژوهشی">معاونت پژوهشی</a></li>
+                                                                <li><a href="/Menu/معاونت فناوری اطلاعات و ارتباطات">معاونت فناوری اطلاعات و ارتباطات</a></li>
+                                                            </ul>
+                                                        </div>
+                                                        <div class="col-6 mt-3">
+                                                            <ul>
+                                                                <li><a href="/Menu/معاونت فرهنگی و دانشجویی">معاونت فرهنگی و دانشجویی</a></li>
+                                                                <li><a href="/Menu/معاونت اداری و مالی">معاونت اداری و مالی</a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-4 text-center">
+                                                    <br>
+                                                    <br>
+                                                    <span class="dropdown-img">مدیریت</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--DROPDOWN-MENU-AMOOZESH-->
+                                    <div class="dropdown-menu" id="amoozeshDDM2">
+                                        <div class="container-fluid">
+                                            <div class="row">
+                                                <div class="col-4">
+                                                    <div class="row">
+                                                        <div class="col-12 dropdown-title">
+                                                            <span>آموزشی و تحصیلات تکمیلی</span>
+                                                            <hr class="m-0">
+                                                        </div>
+                                                        <div class="col-6 mt-3">
+                                                            <ul>
+                                                                <li><a href="/Menu/امور آموزشی">امور آموزشی</a></li>
+                                                                <li><a href="/Menu/امور تحصیلات تکمیلی">امور تحصیلات تکمیلی</a></li>
+                                                                <li><a href="/Menu/آموزش بلند مدت">آموزش بلند مدت</a></li>
+                                                                <li><a href="/Menu/آموزش کوتاه مدت">آموزش کوتاه مدت</a></li>
+                                                            </ul>
+                                                        </div>
+                                                        <div class="col-6 mt-3">
+                                                            <ul>
+                                                                <li><a href="/Menu/فرم های آموزشی">فرم های آموزشی</a></li>
+                                                                <li><a href="/Menu/قوانین و مقررات آموزشی">قوانین و مقررات آموزشی</a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-4">
+                                                    <div class="row">
+                                                        <div class="col-12 dropdown-title">
+                                                            <span>رشته های تحصیلی</span>
+                                                            <hr class="m-0">
+                                                        </div>
+                                                        <div class="col-6 mt-3">
+                                                            <ul>
+                                                                <li><a href="/Menu/فناوری الکترونیک صنعتی">فناوری الکترونیک صنعتی</a></li>
+                                                                <li><a href="/Menu/فناوری پلیمر - رنگ سازی">فناوری پلیمر - رنگ سازی</a></li>
+                                                                <li><a href="/Menu/فناوری صنایع شیمیایی">فناوری صنایع شیمیایی</a></li>
+                                                            </ul>
+                                                        </div>
+                                                        <div class="col-6 mt-3">
+                                                            <ul>
+                                                                <li><a href="/Menu/حسابداری">حسابداری</a></li>
+                                                                <li><a href="/Menu/ایمنی کار و حفاظت فنی">ایمنی کار و حفاظت فنی</a></li>
+                                                                <li><a href="/Menu/برق صنعتی">برق صنعتی</a></li>
+                                                                <li><a href="/Menu/شیمی آزمایشگاهی - صنعتی">شیمی آزمایشگاهی - صنعتی</a></li>
+                                                                <li><a href="/Menu/صنایع شیمیایی - رنگ سازی">صنایع شیمیایی - رنگ سازی</a></li>
+                                                                <li><a href="/Menu/مکانیک تاسیسات - صنعتی">مکانیک تاسیسات - صنعتی</a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-4 text-center">
+                                                    <br>
+                                                    <br>
+                                                    <span class="dropdown-img">آموزش</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--DROPDOWN-MENU-PAJOOHESH-->
+                                    <div class="dropdown-menu" id="pajooheshDDM2">
+                                        <div class="container-fluid">
+                                            <div class="row">
+                                                <div class="col-4">
+                                                    <div class="row">
+                                                        <div class="col-12 dropdown-title">
+                                                            <span>پژوهشی و فناوری</span>
+                                                            <hr class="m-0">
+                                                        </div>
+                                                        <div class="col-6 mt-3">
+                                                            <ul>
+                                                                <li><a href="/Menu/امور پژوهشی">امور پژوهشی</a></li>
+                                                                <li><a href="/Menu/امور فناوری">امور فناوری</a></li>
+                                                            </ul>
+                                                        </div>
+                                                        <div class="col-6 mt-3">
+                                                            <ul>
+                                                                <li><a href="/Menu/مرکز رشد و نوآوری">مرکز رشد و نوآوری</a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-4">
+                                                    <div class="row">
+                                                        <div class="col-12 dropdown-title">
+                                                            <span>آزمایشگاه ها و پژوهشکده ها</span>
+                                                            <hr class="m-0">
+                                                        </div>
+                                                        <div class="col-6 mt-3">
+                                                            <ul>
+                                                                <li><a href="/Menu/آزمایشگاه شیمی">آزمایشگاه شیمی</a></li>
+                                                                <li><a href="/Menu/آزمایشگاه نساجی">آزمایشگاه نساجی</a> </li>
+                                                            </ul>
+                                                        </div>
+                                                        <div class="col-6 mt-3">
+                                                            <ul>
+                                                                <li><a href="/Menu/واحد تحقیق و توسعه">واحد تحقیق و توسعه</a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-4 text-center">
+                                                    <br>
+                                                    <br>
+                                                    <span class="dropdown-img">پژوهش</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--DROPDOWN-MENU-DANESHJOOEE-->
+                                    <div class="dropdown-menu" id="daneshjooeeDDM2">
+                                        <div class="container-fluid">
+                                            <div class="row">
+                                                <div class="col-4">
+                                                    <div class="row">
+                                                        <div class="col-12 dropdown-title">
+                                                            <span>دانشجویی و فرهنگی</span>
+                                                            <hr class="m-0">
+                                                        </div>
+                                                        <div class="col-6 mt-3">
+                                                            <ul>
+                                                                <li><a href="/Menu/امور دانشجویی">امور دانشجویی</a></li>
+                                                                <li><a href="/Menu/امور فرهنگی و اجتماعی">امور فرهنگی و اجتماعی</a></li>
+                                                            </ul>
+                                                        </div>
+                                                        <div class="col-6 mt-3">
+                                                            <ul>
+                                                                <li><a href="/Menu/امور تربیت بدنی">امور تربیت بدنی</a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-4">
+                                                    <div class="row">
+                                                        <div class="col-12 dropdown-title">
+                                                            <span>امور دانشجویی</span>
+                                                            <hr class="m-0">
+                                                        </div>
+                                                        <div class="col-6 mt-3">
+                                                            <ul>
+                                                                <li><a href="/Menu/اداره خوابگاه ها">اداره خوابگاه ها</a> </li>
+                                                                <li><a href="/Menu/اداره تغذیه">اداره تغذیه</a></li>
+                                                                <li><a href="/Menu/اداره رفاه">اداره رفاه</a></li>
+                                                            </ul>
+                                                        </div>
+                                                        <div class="col-6 mt-3">
+                                                            <ul>
+                                                                <li><a href="/Menu/صندوق رفاه دانشجویان">صندوق رفاه دانشجویان</a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-4 text-center">
+                                                    <br>
+                                                    <br>
+                                                    <span class="dropdown-img">دانشجویی</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--DROPDOWN-MENU-EDARI-->
+                                    <div class="dropdown-menu" id="edariDDM2">
+                                        <div class="container-fluid">
+                                            <div class="row">
+                                                <div class="col-4">
+                                                    <div class="row">
+                                                        <div class="col-12 dropdown-title">
+                                                            <span>اداری و مالی</span>
+                                                            <hr class="m-0">
+                                                        </div>
+                                                        <div class="col-6 mt-3">
+                                                            <ul>
+                                                                <li><a href="/Menu/امور اداری">امور اداری</a></li>
+                                                                <li><a href="/Menu/امور شهریه">امور شهریه</a></li>
+                                                            </ul>
+                                                        </div>
+                                                        <div class="col-6 mt-3">
+                                                            <ul>
+                                                                <li><a href="/Menu/امور مالی">امور مالی</a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-4">
+                                                    <div class="row">
+                                                        <div class="col-12 dropdown-title">
+                                                            <span>برنامه ریزی و توسعه</span>
+                                                            <hr class="m-0">
+                                                        </div>
+                                                        <div class="col-6 mt-3">
+                                                            <ul>
+                                                                <li><a href="/Menu/امور فناوری اطلاعات">امور فناوری اطلاعات</a></li>
+                                                                <li><a href="/Menu/ارتباط با صنعت">ارتباط با صنعت</a></li>
+                                                            </ul>
+                                                        </div>
+                                                        <div class="col-6 mt-3">
+                                                            <ul>
+                                                                <li><a href="/Menu/طرح‌های عمرانی">طرح‌های عمرانی</a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-4 text-center">
+                                                    <br>
+                                                    <br>
+                                                    <span class="dropdown-img">اداری</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </ul>
+                            </div>
+                            <div class="small-nav-menu d-lg-none text-center"> <a id="offcanvas-btn2" role="button"><i class="bi bi-list text-white"></i></a> </div>
+                        </div>
+                        <div class="col-xl-2 col-lg-2 col-md-2 col-sm-4 col-xs-4 col-4 text-center">
+                            <div class="logo2"> <a href="@Url.Content("~/")"><img src="~/images/logo.png" alt="" /></a> </div>
+                        </div>
+                        <div class="col-xl-5 col-lg-5 col-md-5 col-sm-4 col-xs-4 col-4">
+                            <div class="large-left-nav-menu">
+                                <ul class="nav flex-nowrap justify-content-center ">
+                                    <li class="nav-item"><a onclick="Swal.fire({position: 'center',icon: 'info',title: 'The English version is under development and will be available soon. Thanks for your patience',showConfirmButton: false,timer: 5000})" class="nav-link text-white">EN</a></li>
+                                    <li class="nav-item"><a href="#" type="button" class="nav-link text-white" data-toggle="modal" data-target="#searchModal"><i class="bi bi-search"></i></a></li>
+                                    <li class="nav-item"><a href="@Url.Content("~/")" class="nav-link text-white d-none d-sm-inline-block"><i class="bi bi-house-door"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--SEARCH MODAL-->
+        <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="searchModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content bg-transparent position-absolute" style="top:120px">
+                    <form asp-page="Search" method="get" class="input-group">
+                        <div class="input-group-prepend">
+                            <button class="btn" style="background: #0579a4" type="submit"><i class="text-white bi bi-search"></i></button>
+                        </div>
+                        <input name="search" type="text" class="form-control" placeholder="جستجو..." aria-label="search">
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!--NEWS-->
+        <section id="NewsSection" class="news-section row" style="background:#fff">
+            <div class="gallery-container w-100">
+                <div class="tz-gallery">
+                    <div class="row d-flex justify-content-center">
+                        <div class="switch-button">
+                            <input class="switch-button-checkbox" type="checkbox" onclick="window.location.href = '/NewsArchive'" />
+                            <label class="switch-button-label" for=""><span class="switch-button-label-span">آرشیو</span></label>
+                        </div>
+                    </div>
+
+                    @RenderSection("news", required: false)
+
+                </div>
+            </div>
+        </section>
+
+        <!--EDUCATION-->
+        <section id="EducationSection" class="education-section row" style="background-color: #f8f8fa">
+            <div class="gallery-container w-100">
+                <div class="tz-gallery">
+                    <div class="row d-flex justify-content-center">
+                        <div class="switch-button switch-button2">
+                            <input class="switch-button-checkbox" type="checkbox" onclick="window.location.href = '/SContent/1/معرفی شرکت دانش بنیان الوان ثابت'" />
+                            <label class="switch-button-label" for=""><span class="switch-button-label-span">بیشتر</span></label>
+                        </div>
+                    </div>
+                    <div class="container pt-4">
+                        <!--circle stats-->
+                        <section class="charts_orb" id="circle-stats">
+                            <article class="orb">
+                                <div class="orb_graphic">
+                                    <svg>
+                                        <circle class="fill"></circle>
+                                        <circle class="progress"></circle>
+                                    </svg>
+                                    <div class="orb_value count">150</div>
+                                </div>
+                                <div class="orb_label"> دانشجو </div>
+                            </article>
+                            <article class="orb">
+                                <div class="orb_graphic">
+                                    <svg>
+                                        <circle class="fill"></circle>
+                                        <circle class="progress"></circle>
+                                    </svg>
+                                    <div class="orb_value count">300</div>
+                                </div>
+                                <div class="orb_label"> فارغ التحصیل </div>
+                            </article>
+                            <article class="orb">
+                                <div class="orb_graphic">
+                                    <svg>
+                                        <circle class="fill"></circle>
+                                        <circle class="progress"></circle>
+                                    </svg>
+                                    <div class="orb_value count">8</div>
+                                </div>
+                                <div class="orb_label"> رشته </div>
+                            </article>
+                            <article class="orb">
+                                <div class="orb_graphic">
+                                    <svg>
+                                        <circle class="fill"></circle>
+                                        <circle class="progress"></circle>
+                                    </svg>
+                                    <div class="orb_value count">52</div>
+                                </div>
+                                <div class="orb_label"> ورودی جدید </div>
+                            </article>
+                            <article class="orb d-none d-md-block">
+                                <div class="orb_graphic">
+                                    <svg>
+                                        <circle class="fill"></circle>
+                                        <circle class="progress"></circle>
+                                    </svg>
+                                    <div class="orb_value count">10</div>
+                                </div>
+                                <div class="orb_label"> سال سابقه </div>
+                            </article>
+                        </section>
+                        <!--INTRO CARDS-->
+                        <div class="row">
+                            <main class="page-content2">
+                                <div class="card2">
+                                    <div class="content2">
+                                        <h2 class="title2">معرفی شرکت دانش بنیان الوان ثابت</h2>
+                                        <p class="copy2">نگاهی به شرکت دانش بنیان الوان ثابت، بزرگترین کارخانه تولید رنگ و مواد نساجی در خاورمیانه </p>
+                                        <button onclick="window.location.href = '/SContent/1/معرفی شرکت دانش بنیان الوان ثابت'" class="btn2">ادامه مطلب</button>
+                                    </div>
+                                </div>
+                                <div class="card2">
+                                    <div class="content2">
+                                        <h2 class="title2">معرفی مرکز علمی کاربردی الوان ثابت</h2>
+                                        <p class="copy2">معرفی مرکز آموزش علمی کاربردی الوان ثابت، اهداف کلان، گروه های آموزشی و دستاورد ها</p>
+                                        <button onclick="window.location.href = '/SContent/2/معرفی مرکز آموزش علمی کاربردی الوان ثابت'" class="btn2">ادامه مطلب</button>
+                                    </div>
+                                </div>
+                                <div class="card2">
+                                    <div class="content2">
+                                        <h2 class="title2">معرفی مرکز رشد و نوآوری</h2>
+                                        <p class="copy2">معرفی مرکز رشد و نوآوری الوان ثابت و اهداف تشکیل آن</p>
+                                        <button onclick="window.location.href = '/SContent/3/معرفی مرکز رشد و نوآوری'" class="btn2">ادامه مطلب</button>
+                                    </div>
+                                </div>
+                                <div class="card2">
+                                    <div class="content2">
+                                        <h2 class="title2">استخدام فارغ التحصیلان ممتاز</h2>
+                                        <p class="copy2">استخدام فارغ التحصیلان ممتاز در شرکت دانش بنیان الوان ثابت با هدف حمایت از نخبگان و جوانان کشور</p>
+                                        <button onclick="window.location.href = '/SContent/4/استخدام فارغ التحصیلان ممتاز'" class="btn2">ادامه مطلب</button>
+                                    </div>
+                                </div>
+                            </main>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--NOTICES-->
+        <section id="NoticeSection" class="notice-section row" style="background-color:#fff">
+            <div class="gallery-container w-100">
+                <div class="tz-gallery">
+                    <div class="row d-flex justify-content-center">
+                        <div class="switch-button switch-button3">
+                            <input class="switch-button-checkbox" type="checkbox" onclick="window.location.href = '/NoticeArchive'" />
+                            <label class="switch-button-label" for=""><span class="switch-button-label-span">آرشیو</span></label>
+                        </div>
+                    </div>
+                    <div class="container pt-4">
+
+                        @RenderSection("notices", required: false)
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--EVENTS-->
+        <section id="EventSection" class="event-section row" style="background-color:#f8f8fa">
+            <div class="gallery-container w-100">
+                <div class="tz-gallery">
+                    <div class="row d-flex justify-content-center">
+                        <div class="switch-button switch-button4">
+                            <input class="switch-button-checkbox" type="checkbox" onclick="window.location.href = '/EventArchive'" />
+                            <label class="switch-button-label" for=""><span class="switch-button-label-span">آرشیو</span></label>
+                        </div>
+                    </div>
+                    <div class="container pt-4">
+
+                        @RenderSection("events", required: false)
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--TIMELINE SECTION-->
+        <section class="row" style="height: 250px;background:#f8f8fa" id="timeline">
+            <div class="col">
+
+                @RenderSection("timeline", required: false)
+
+            </div>
+        </section>
+
+        @await Html.PartialAsync("_PartialFooter")
+
+    </div>
+
+    <!-- js -->
+    <script src="~/js/jquery-3.4.1.min.js"></script>
+    <script src="~/js/popper.min.js"></script>
+    <script src="~/js/bootstrap453.min.js"></script>
+    <script src="~/dist/owlcarousel/owl.carousel.min.js"></script>
+    <script src="~/dist/swal/sweetalert2@11.js"></script>
+    <script src="~/js/custom.js"></script>
+</body>
+
+</html>

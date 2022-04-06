@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+@await Html.PartialAsync("_PartialNonIndexHead")
+
+<body>
+    @RenderBody()
+
+    @await Html.PartialAsync("_PartialMobileOffCanvas")
+
+    <div class="container-fluid" id="parentDiv">
+        <!--NAVBAR-->
+        @await Html.PartialAsync("_PartialNavbar")
+
+        <!-- CONTENT -->
+        <div class="static-page container">
+
+            <!-- SITEMAP -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="sitemap p-2 m-2">
+                        @RenderSection("sitemap", required: false)
+                    </div>
+                </div>
+            </div>
+            <!-- SITEMAP -->
+            <!-- NEWS -->
+            <div class="row newssection">
+                <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 col-xs-12">
+                    <div class="news-container">
+                        @RenderSection("news", required: false)
+                    </div>
+                    <hr>
+                </div>
+                <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12">
+                    @RenderSection("sidemenu", required: false)
+                </div>
+            </div>
+            <!-- NEWS -->
+        </div>
+
+        @await Html.PartialAsync("_PartialFooter")
+    </div>
+
+    @await Html.PartialAsync("_PartialNonIndexJs")
+</body>
+
+</html>
