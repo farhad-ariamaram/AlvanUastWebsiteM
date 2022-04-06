@@ -23,12 +23,8 @@ namespace AlvanUastWebsiteM
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContextPool<AlvanUastDBContext>(options => options.UseMySQL(EncryptStringSample.Decrypt(Configuration.GetConnectionString("cs"))));
-            services.AddRazorPages();
             //services.AddDbContextPool<AlvanUastDBContext>(options => options.UseMySQL("server=localhost;port=3306;user=root;password=123123;database=alvanuastdb;CharSet=utf8"));
-            //services.AddRazorPages().AddRazorPagesOptions(o =>
-            //{
-            //    o.Conventions.ConfigureFilter(new IgnoreAntiforgeryTokenAttribute());
-            //});
+            services.AddRazorPages();
             services.AddSession(options => {
                 options.IdleTimeout = TimeSpan.FromMinutes(20);
             });
