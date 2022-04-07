@@ -24,8 +24,8 @@ namespace AlvanUastWebsiteM.Pages.Customize
             if (string.IsNullOrEmpty(uid))
             {
                 Random x = new Random();
-                ViewData["a"] = x.Next(10);
-                ViewData["b"] = x.Next(10);
+                ViewData["a"] = x.Next(1,10);
+                ViewData["b"] = x.Next(1,10);
                 return Page();
             }
             else
@@ -42,8 +42,8 @@ namespace AlvanUastWebsiteM.Pages.Customize
             if (string.IsNullOrEmpty(Request.Form["SecCode"]))
             {
                 Random x = new Random();
-                ViewData["a"] = x.Next(10);
-                ViewData["b"] = x.Next(10);
+                ViewData["a"] = x.Next(1,10);
+                ViewData["b"] = x.Next(1,10);
                 ModelState.AddModelError("Wrong", "کد امنیتی اشتباه است");
                 return Page();
             }
@@ -51,11 +51,11 @@ namespace AlvanUastWebsiteM.Pages.Customize
             var a = int.Parse(Request.Form["SecCode"]);
             var b = int.Parse(Request.Form["a"]);
             var c = int.Parse(Request.Form["b"]);
-            if (a != 10 * Math.Abs(b - c))
+            if (a != 10 * Math.Abs(b + c))
             {
                 Random x = new Random();
-                ViewData["a"] = x.Next(10);
-                ViewData["b"] = x.Next(10);
+                ViewData["a"] = x.Next(1,10);
+                ViewData["b"] = x.Next(1,10);
                 ModelState.AddModelError("Wrong", "کد امنیتی اشتباه است");
                 return Page();
             }
@@ -63,8 +63,8 @@ namespace AlvanUastWebsiteM.Pages.Customize
             if (!ModelState.IsValid)
             {
                 Random x = new Random();
-                ViewData["a"] = x.Next(10);
-                ViewData["b"] = x.Next(10);
+                ViewData["a"] = x.Next(1,10);
+                ViewData["b"] = x.Next(1,10);
                 ModelState.AddModelError("Wrong", "نام کاربری و یا کلمه عبور اشتباه است");
                 return Page();
             }
@@ -74,8 +74,8 @@ namespace AlvanUastWebsiteM.Pages.Customize
             if (checkUser == null)
             {
                 Random x = new Random();
-                ViewData["a"] = x.Next(10);
-                ViewData["b"] = x.Next(10);
+                ViewData["a"] = x.Next(1,10);
+                ViewData["b"] = x.Next(1,10);
                 ModelState.AddModelError("Wrong", "نام کاربری و یا کلمه عبور اشتباه است");
                 return Page();
             }

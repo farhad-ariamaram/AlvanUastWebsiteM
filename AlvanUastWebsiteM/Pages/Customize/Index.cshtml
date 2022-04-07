@@ -173,7 +173,7 @@
         <input asp-for="user.Username" type="text" placeholder="نام کاربری">
         <input asp-for="user.Password" type="password" placeholder="کلمه عبور">
         <div style="display:flex">
-            <span>@(int.Parse(ViewData["a"].ToString()) > int.Parse(ViewData["b"].ToString()) ? $"{ViewData["a"]} - {ViewData["b"]} = " : $"{ViewData["b"]} - {ViewData["a"]} = ")</span>
+            <span>@($"{ViewData["a"]} + {ViewData["b"]} = ")</span>
             <input name="SecCode" type="text" placeholder="حاصل عبارت">
         </div>
         <button type="submit">ورود</button>
