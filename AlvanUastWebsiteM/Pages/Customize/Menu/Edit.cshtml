@@ -52,7 +52,11 @@
 @section Scripts {
     <script src="~/dist/nicEdit/nicEdit.js"></script>
     <script type="text/javascript">
-        bkLib.onDomLoaded(function () { nicEditors.allTextAreas() });
+        bkLib.onDomLoaded(function () {
+            new nicEditor({
+                fullPanel: true
+            }).panelInstance('menu_Body');
+        });
     </script>
     <script>
         $(document).ready(
