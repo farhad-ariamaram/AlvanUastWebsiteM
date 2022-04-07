@@ -49,12 +49,17 @@
                 <td>
                     @if (item.Body.Length > 100)
                     {
-                        @item.Body.Substring(0, 99) @("...")
+                        <div class="border rounded overflow-auto" style="max-height:200px;max-width:150px">
+                            @Html.Raw(item.Body.Substring(0, 99)) @("...")
+                        </div>
                     }
                     else
                     {
-                        @item.Body
+                        <div class="border rounded overflow-auto" style="max-height:200px;max-width:150px">
+                            @Html.Raw(item.Body)
+                        </div>
                     }
+
                 </td>
                 <td>
                     @item.NewsCategory.Name

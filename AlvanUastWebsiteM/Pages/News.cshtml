@@ -19,7 +19,7 @@
     </div>
     <img class="img-fluid img-thumbnail rounded mx-auto d-block mt-2" src="~/images/news/@Model.news.Image">
     <p class="text-justify p-3">
-        @Model.news.Body
+        @Html.Raw(Model.news.Body)
     </p>
     <div class="other-images">
         @if (Model.news.Pics != null)

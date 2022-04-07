@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using System;
 
 namespace AlvanUastWebsiteM
@@ -22,8 +23,8 @@ namespace AlvanUastWebsiteM
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContextPool<AlvanUastDBContext>(options => options.UseMySQL(EncryptStringSample.Decrypt(Configuration.GetConnectionString("cs"))));
-            //services.AddDbContextPool<AlvanUastDBContext>(options => options.UseMySQL("server=localhost;port=3306;user=root;password=123123;database=alvanuastdb;CharSet=utf8"));
+            //services.AddDbContextPool<AlvanUastDBContext>(options => options.UseMySQL(EncryptStringSample.Decrypt(Configuration.GetConnectionString("cs"))));
+            services.AddDbContextPool<AlvanUastDBContext>(options => options.UseMySQL("server=localhost;port=3306;user=root;password=123123;database=alvanuastdb;CharSet=utf8"));
             services.AddRazorPages();
             services.AddSession(options => {
                 options.IdleTimeout = TimeSpan.FromMinutes(20);
@@ -33,18 +34,18 @@ namespace AlvanUastWebsiteM
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            //if (env.IsDevelopment())
-            //{
-            //    app.UseDeveloperExceptionPage();
-            //}
-            //else
-            //{
-            //    app.UseExceptionHandler("/Error");
-            //}
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+            }
+            else
+            {
+                app.UseExceptionHandler("/Error");
+            }
 
-            app.UseExceptionHandler("/status500");
-            app.UseStatusCodePages();
-            app.UseStatusCodePagesWithReExecute("/status{0}");
+            //app.UseExceptionHandler("/status500");
+            //app.UseStatusCodePages();
+            //app.UseStatusCodePagesWithReExecute("/status{0}");
 
             app.UseStaticFiles();
 

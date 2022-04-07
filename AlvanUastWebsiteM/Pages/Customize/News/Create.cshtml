@@ -80,6 +80,10 @@
 </div>
 
 @section Scripts {
+    <script src="~/dist/nicEdit/nicEdit.js"></script>
+    <script type="text/javascript">
+        bkLib.onDomLoaded(function () { nicEditors.allTextAreas() });
+    </script>
     <script>
         $(document).ready(
             function () {

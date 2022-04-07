@@ -12,7 +12,7 @@
                     <a href="/News/@Model.topFiveNews[0].Id/@Model.topFiveNews[0].Title">
                         <h3 class="sp-title">@(Model.topFiveNews[0].Title)</h3>
                     </a>
-                    <div class="sp-desc"> @(Model.topFiveNews[0].Body) </div>
+                    <div class="sp-desc"> @Html.Raw(Model.topFiveNews[0].Body) </div>
                 </div>
                 <div class="sp-date"> @(Model.topFiveNews[0].Date.toPersianDate()) </div>
             </div>
@@ -26,7 +26,7 @@
                             <a href="/News/@Model.topFiveNews[1].Id/@Model.topFiveNews[1].Title">
                                 <h3 class="sp-title">@(Model.topFiveNews[1].Title)</h3>
                             </a>
-                            <div class="sp-desc">@(Model.topFiveNews[1].Body)</div>
+                            <div class="sp-desc">@Html.Raw(Model.topFiveNews[1].Body)</div>
                         </div>
                         <div class="sp-date"> @(Model.topFiveNews[1].Date.toPersianDate()) </div>
                     </div>
@@ -40,7 +40,7 @@
                             <a href="/News/@Model.topFiveNews[2].Id/@Model.topFiveNews[2].Title">
                                 <h3 class="sp-title">@(Model.topFiveNews[2].Title) </h3>
                             </a>
-                            <div class="sp-desc">@(Model.topFiveNews[2].Body) </div>
+                            <div class="sp-desc">@Html.Raw(Model.topFiveNews[2].Body) </div>
                         </div>
                         <div class="sp-date"> @(Model.topFiveNews[2].Date.toPersianDate()) </div>
                     </div>
@@ -56,7 +56,7 @@
                             <a href="/News/@Model.topFiveNews[3].Id/@Model.topFiveNews[3].Title">
                                 <h3 class="sp-title">@(Model.topFiveNews[3].Title) </h3>
                             </a>
-                            <div class="sp-desc"> @(Model.topFiveNews[3].Body) </div>
+                            <div class="sp-desc"> @Html.Raw(Model.topFiveNews[3].Body) </div>
                         </div>
                         <div class="sp-date"> @(Model.topFiveNews[3].Date.toPersianDate()) </div>
                     </div>
@@ -70,7 +70,7 @@
                             <a href="/News/@Model.topFiveNews[4].Id/@Model.topFiveNews[4].Title">
                                 <h3 class="sp-title">@(Model.topFiveNews[4].Title) </h3>
                             </a>
-                            <div class="sp-desc"> @(Model.topFiveNews[4].Body)</div>
+                            <div class="sp-desc"> @Html.Raw(Model.topFiveNews[4].Body)</div>
                         </div>
                         <div class="sp-date"> @(Model.topFiveNews[4].Date.toPersianDate()) </div>
                     </div>
@@ -89,7 +89,7 @@
                             <a href="/News/@Model.topFiveNews[0].Id/@Model.topFiveNews[0].Title">
                                 <h3 class="sp-title">@(Model.topFiveNews[0].Title)</h3>
                             </a>
-                            <div class="sp-desc"> @(Model.topFiveNews[0].Body) </div>
+                            <div class="sp-desc"> @Html.Raw(Model.topFiveNews[0].Body) </div>
                         </div>
                         <div class="sp-date"> @(Model.topFiveNews[0].Date.toPersianDate())</div>
                     </div>
@@ -103,7 +103,7 @@
                             <a href="/News/@Model.topFiveNews[1].Id/@Model.topFiveNews[1].Title">
                                 <h3 class="sp-title">@(Model.topFiveNews[1].Title)</h3>
                             </a>
-                            <div class="sp-desc"> @(Model.topFiveNews[1].Body) </div>
+                            <div class="sp-desc"> @Html.Raw(Model.topFiveNews[1].Body) </div>
                         </div>
                         <div class="sp-date"> @(Model.topFiveNews[1].Date.toPersianDate()) </div>
                     </div>
@@ -117,7 +117,7 @@
                             <a href="/News/@Model.topFiveNews[2].Id/@Model.topFiveNews[2].Title">
                                 <h3 class="sp-title">@(Model.topFiveNews[2].Title) </h3>
                             </a>
-                            <div class="sp-desc">@(Model.topFiveNews[2].Body) </div>
+                            <div class="sp-desc">@Html.Raw(Model.topFiveNews[2].Body) </div>
                         </div>
                         <div class="sp-date"> @(Model.topFiveNews[2].Date.toPersianDate())  </div>
                     </div>
@@ -131,7 +131,7 @@
                             <a href="/News/@Model.topFiveNews[3].Id/@Model.topFiveNews[3].Title">
                                 <h3 class="sp-title">@(Model.topFiveNews[3].Title) </h3>
                             </a>
-                            <div class="sp-desc"> @(Model.topFiveNews[3].Body) </div>
+                            <div class="sp-desc"> @Html.Raw(Model.topFiveNews[3].Body) </div>
                         </div>
                         <div class="sp-date"> @(Model.topFiveNews[3].Date.toPersianDate())</div>
                     </div>
@@ -145,7 +145,7 @@
                             <a href="/News/@Model.topFiveNews[4].Id/@Model.topFiveNews[4].Title">
                                 <h3 class="sp-title">@(Model.topFiveNews[4].Title) </h3>
                             </a>
-                            <div class="sp-desc"> @(Model.topFiveNews[4].Body) </div>
+                            <div class="sp-desc"> @Html.Raw(Model.topFiveNews[4].Body) </div>
                         </div>
                         <div class="sp-date"> @(Model.topFiveNews[4].Date.toPersianDate()) </div>
                     </div>

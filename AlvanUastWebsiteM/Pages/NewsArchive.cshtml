@@ -95,11 +95,11 @@
                                 <p>
                                     @if (@item.Body.Length > 150)
                                     {
-                                        @item.Body.Substring(0, 149) @("...")
+                                        @Html.Raw(item.Body.Substring(0, 149)) @("...")
                                     }
                                     else
                                     {
-                                        @item.Body @("...")
+                                        @Html.Raw(item.Body) @("...")
                                     }
                                 </p>
                                 <time><span class="bi bi-calendar-check"></span> @item.Date.toPersianDate()</time>

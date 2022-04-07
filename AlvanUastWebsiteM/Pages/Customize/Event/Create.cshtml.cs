@@ -1,4 +1,5 @@
 using System;
+using System.ComponentModel.DataAnnotations;
 using System.IO;
 using System.Threading.Tasks;
 using AlvanUastWebsiteM.Models;
@@ -10,6 +11,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace AlvanUastWebsiteM.Pages.Customize.Event
 {
+    [IgnoreAntiforgeryToken(Order = 1001)]
     public class CreateModel : PageModel
     {
 
@@ -70,5 +72,7 @@ namespace AlvanUastWebsiteM.Pages.Customize.Event
 
             return Page();
         }
+
+
     }
 }

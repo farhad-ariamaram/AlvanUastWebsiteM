@@ -23,7 +23,7 @@
             <div class="form-group mt-3 text-center">
                 <label class="control-label">عکس</label>
                 <input type="hidden" asp-for="eventt.Image" value="@ViewData["ImageName"]" class="form-control" />
-                <img class="img-thumbnail img-fluid" width="100" src="~/images/events/@ViewData["ImageName"]" />
+                <img id="myimage" class="img-thumbnail img-fluid" width="100" src="~/images/events/@ViewData["ImageName"]" />
                 <span asp-validation-for="eventt.Image" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -66,7 +66,6 @@
                             $('#uploadsubmit').attr('disabled', true);
                         }
                     });
-
                 $("#date").persianDatepicker({
                     isRTL: !0,
                     formatDate: "YYYY/MM/DD",
